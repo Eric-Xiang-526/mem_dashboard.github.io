@@ -1,0 +1,45 @@
+{
+  "id": "baseline_full_dialog_qwen3_8b",
+  "label": "Full Dialog (Qwen3-8B)",
+  "group": "other",
+  "description": "Literature baseline, Acc. column only, from the paper's main-results table.",
+  "generation_model": "qwen3-8b",
+  "date": "",
+  "results": [
+    {
+      "task": "objective_fact_judgment",
+      "arm": "baseline",
+      "n_judged": null,
+      "headline_metric": "objective_correctness_avg",
+      "headline_value": 0.3062
+    },
+    {
+      "task": "contextual_scope_control",
+      "arm": "baseline",
+      "n_judged": null,
+      "headline_metric": "accuracy_avg",
+      "headline_value": 0.7
+    },
+    {
+      "task": "memory_evidence_conflict",
+      "arm": "baseline",
+      "n_judged": null,
+      "headline_metric": "accuracy_avg",
+      "headline_value": 0.0067
+    },
+    {
+      "task": "personalized_memory_use",
+      "arm": "baseline",
+      "n_judged": null,
+      "headline_metric": "answer_accuracy_avg",
+      "headline_value": 0.4567
+    },
+    {
+      "task": "valid_memory_selection",
+      "arm": "baseline",
+      "n_judged": null,
+      "headline_metric": "uses_latest_preference_avg",
+      "headline_value": 0.2779
+    }
+  ]
+}

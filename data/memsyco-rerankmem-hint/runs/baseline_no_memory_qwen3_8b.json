@@ -1,0 +1,17 @@
+{
+  "id": "baseline_no_memory_qwen3_8b",
+  "label": "No Memory (Qwen3-8B)",
+  "group": "other",
+  "description": "Literature baseline, Acc. column only, from the paper's main-results table.",
+  "generation_model": "qwen3-8b",
+  "date": "",
+  "results": [
+    {
+      "task": "objective_fact_judgment",
+      "arm": "baseline",
+      "n_judged": null,
+      "headline_metric": "objective_correctness_avg",
+      "headline_value": 0.49119999999999997
+    }
+  ]
+}

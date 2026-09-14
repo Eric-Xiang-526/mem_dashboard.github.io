@@ -109,13 +109,16 @@ function rowHtml(run) {
     })
     .join("");
   const m = runMean(run);
-  const n = run.results[0] ? run.results[0].n_judged : "?";
+  const n = run.results[0] ? run.results[0].n_judged : null;
+  const sub = [run.date ? run.date.slice(0, 10) : "", n === null || n === undefined ? "" : `n=${n}`]
+    .filter(Boolean)
+    .join(" · ");
   return `
     <tr>
       <td>
         <div class="run-cell">
           <span class="run-label">${escapeHtml(run.label)}</span>
-          <span class="run-sub">${run.date ? run.date.slice(0, 10) : ""} · n=${n}</span>
+          ${sub ? `<span class="run-sub">${sub}</span>` : ""}
         </div>
       </td>
       ${cells}

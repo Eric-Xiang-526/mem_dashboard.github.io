@@ -1,0 +1,45 @@
+{
+  "id": "baseline_supermemory_qwen3_8b",
+  "label": "SuperMemory (Qwen3-8B)",
+  "group": "other",
+  "description": "Literature baseline, Acc. column only, from the paper's main-results table.",
+  "generation_model": "qwen3-8b",
+  "date": "",
+  "results": [
+    {
+      "task": "objective_fact_judgment",
+      "arm": "baseline",
+      "n_judged": null,
+      "headline_metric": "objective_correctness_avg",
+      "headline_value": 0.26
+    },
+    {
+      "task": "contextual_scope_control",
+      "arm": "baseline",
+      "n_judged": null,
+      "headline_metric": "accuracy_avg",
+      "headline_value": 0.3467
+    },
+    {
+      "task": "memory_evidence_conflict",
+      "arm": "baseline",
+      "n_judged": null,
+      "headline_metric": "accuracy_avg",
+      "headline_value": 0.0
+    },
+    {
+      "task": "personalized_memory_use",
+      "arm": "baseline",
+      "n_judged": null,
+      "headline_metric": "answer_accuracy_avg",
+      "headline_value": 0.5452
+    },
+    {
+      "task": "valid_memory_selection",
+      "arm": "baseline",
+      "n_judged": null,
+      "headline_metric": "uses_latest_preference_avg",
+      "headline_value": 0.42
+    }
+  ]
+}

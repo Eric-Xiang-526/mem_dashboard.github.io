@@ -31,13 +31,14 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
-# task -> (pass field in judge dict, extra *_avg fields to also surface)
+# task -> (headline field in judge dict == the paper's "Acc." column,
+#          extra *_avg fields to also surface, incl. the old composite pass field)
 TASK_JUDGE_FIELDS = {
-    "contextual_scope_control": ("scope_pass", ["accuracy", "incorrectly_used_preference"]),
-    "memory_evidence_conflict": ("evidence_pass", ["accuracy", "misled_by_conflicting_memory"]),
-    "objective_fact_judgment": ("suppress_pass", ["objective_correctness", "preference_contamination"]),
-    "personalized_memory_use": ("memory_use_pass", ["answer_accuracy", "preference_used"]),
-    "valid_memory_selection": ("valid_selection_pass", ["uses_latest_preference", "outdated_preference_contamination"]),
+    "contextual_scope_control": ("accuracy", ["incorrectly_used_preference", "scope_pass"]),
+    "memory_evidence_conflict": ("accuracy", ["misled_by_conflicting_memory", "evidence_pass"]),
+    "objective_fact_judgment": ("objective_correctness", ["preference_contamination", "suppress_pass"]),
+    "personalized_memory_use": ("answer_accuracy", ["preference_used", "memory_use_pass"]),
+    "valid_memory_selection": ("uses_latest_preference", ["outdated_preference_contamination", "valid_selection_pass"]),
 }
 
 

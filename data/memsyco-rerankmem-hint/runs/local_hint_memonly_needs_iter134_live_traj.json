@@ -13,46 +13,46 @@
       "task": "contextual_scope_control",
       "arm": "with_memory",
       "n_judged": 300,
-      "headline_metric": "scope_pass_avg",
+      "headline_metric": "accuracy_avg",
       "headline_value": 0.38666666666666666,
-      "accuracy_avg": 0.38666666666666666,
-      "incorrectly_used_preference_avg": 0.26666666666666666
+      "incorrectly_used_preference_avg": 0.26666666666666666,
+      "scope_pass_avg": 0.38666666666666666
     },
     {
       "task": "memory_evidence_conflict",
       "arm": "with_memory",
       "n_judged": 300,
-      "headline_metric": "evidence_pass_avg",
+      "headline_metric": "accuracy_avg",
       "headline_value": 0.8166666666666667,
-      "accuracy_avg": 0.8166666666666667,
-      "misled_by_conflicting_memory_avg": 0.09333333333333334
+      "misled_by_conflicting_memory_avg": 0.09333333333333334,
+      "evidence_pass_avg": 0.8166666666666667
     },
     {
       "task": "objective_fact_judgment",
       "arm": "with_memory",
       "n_judged": 300,
-      "headline_metric": "suppress_pass_avg",
-      "headline_value": 0.29,
-      "objective_correctness_avg": 0.3,
-      "preference_contamination_avg": 0.5233333333333333
+      "headline_metric": "objective_correctness_avg",
+      "headline_value": 0.3,
+      "preference_contamination_avg": 0.5233333333333333,
+      "suppress_pass_avg": 0.29
     },
     {
       "task": "personalized_memory_use",
       "arm": "with_memory",
       "n_judged": 300,
-      "headline_metric": "memory_use_pass_avg",
-      "headline_value": 0.37666666666666665,
-      "answer_accuracy_avg": 0.38333333333333336,
-      "preference_used_avg": 0.5566666666666666
+      "headline_metric": "answer_accuracy_avg",
+      "headline_value": 0.38333333333333336,
+      "preference_used_avg": 0.5566666666666666,
+      "memory_use_pass_avg": 0.37666666666666665
     },
     {
       "task": "valid_memory_selection",
       "arm": "with_memory",
       "n_judged": 350,
-      "headline_metric": "valid_selection_pass_avg",
-      "headline_value": 0.42857142857142855,
-      "uses_latest_preference_avg": 0.4742857142857143,
-      "outdated_preference_contamination_avg": 0.4085714285714286
+      "headline_metric": "uses_latest_preference_avg",
+      "headline_value": 0.4742857142857143,
+      "outdated_preference_contamination_avg": 0.4085714285714286,
+      "valid_selection_pass_avg": 0.42857142857142855
     }
   ]
 }

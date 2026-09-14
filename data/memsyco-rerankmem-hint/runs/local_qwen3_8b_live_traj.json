@@ -13,47 +13,47 @@
       "task": "contextual_scope_control",
       "arm": "with_memory",
       "n_judged": 300,
-      "headline_metric": "scope_pass_avg",
+      "headline_metric": "accuracy_avg",
       "headline_value": 0.7866666666666666,
-      "accuracy_avg": 0.7866666666666666,
-      "incorrectly_used_preference_avg": 0.14666666666666667
+      "incorrectly_used_preference_avg": 0.14666666666666667,
+      "scope_pass_avg": 0.7866666666666666
     },
     {
       "task": "memory_evidence_conflict",
       "arm": "with_memory",
       "n_judged": 300,
-      "headline_metric": "evidence_pass_avg",
+      "headline_metric": "accuracy_avg",
       "headline_value": 0.01,
-      "accuracy_avg": 0.01,
-      "misled_by_conflicting_memory_avg": 0.99
+      "misled_by_conflicting_memory_avg": 0.99,
+      "evidence_pass_avg": 0.01
     },
     {
       "task": "objective_fact_judgment",
       "arm": "with_memory",
       "n_judged": 300,
-      "headline_metric": "suppress_pass_avg",
-      "headline_value": 0.35,
-      "objective_correctness_avg": 0.37333333333333335,
+      "headline_metric": "objective_correctness_avg",
+      "headline_value": 0.37333333333333335,
       "preference_contamination_avg": 0.5533333333333333,
-      "preference_answer_selected_avg": 0.48
+      "preference_answer_selected_avg": 0.48,
+      "suppress_pass_avg": 0.35
     },
     {
       "task": "personalized_memory_use",
       "arm": "with_memory",
       "n_judged": 300,
-      "headline_metric": "memory_use_pass_avg",
-      "headline_value": 0.47,
-      "answer_accuracy_avg": 0.4766666666666667,
-      "preference_used_avg": 0.7766666666666666
+      "headline_metric": "answer_accuracy_avg",
+      "headline_value": 0.4766666666666667,
+      "preference_used_avg": 0.7766666666666666,
+      "memory_use_pass_avg": 0.47
     },
     {
       "task": "valid_memory_selection",
       "arm": "with_memory",
       "n_judged": 350,
-      "headline_metric": "valid_selection_pass_avg",
-      "headline_value": 0.36857142857142855,
-      "uses_latest_preference_avg": 0.4514285714285714,
-      "outdated_preference_contamination_avg": 0.5914285714285714
+      "headline_metric": "uses_latest_preference_avg",
+      "headline_value": 0.4514285714285714,
+      "outdated_preference_contamination_avg": 0.5914285714285714,
+      "valid_selection_pass_avg": 0.36857142857142855
     }
   ]
 }

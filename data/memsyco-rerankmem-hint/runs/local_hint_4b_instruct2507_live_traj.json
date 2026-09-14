@@ -13,46 +13,46 @@
       "task": "contextual_scope_control",
       "arm": "with_memory",
       "n_judged": 300,
-      "headline_metric": "scope_pass_avg",
+      "headline_metric": "accuracy_avg",
       "headline_value": 0.49333333333333335,
-      "accuracy_avg": 0.49333333333333335,
-      "incorrectly_used_preference_avg": 0.27666666666666667
+      "incorrectly_used_preference_avg": 0.27666666666666667,
+      "scope_pass_avg": 0.49333333333333335
     },
     {
       "task": "memory_evidence_conflict",
       "arm": "with_memory",
       "n_judged": 300,
-      "headline_metric": "evidence_pass_avg",
+      "headline_metric": "accuracy_avg",
       "headline_value": 0.8833333333333333,
-      "accuracy_avg": 0.8833333333333333,
-      "misled_by_conflicting_memory_avg": 0.10333333333333333
+      "misled_by_conflicting_memory_avg": 0.10333333333333333,
+      "evidence_pass_avg": 0.8833333333333333
     },
     {
       "task": "objective_fact_judgment",
       "arm": "with_memory",
       "n_judged": 300,
-      "headline_metric": "suppress_pass_avg",
-      "headline_value": 0.3333333333333333,
-      "objective_correctness_avg": 0.4266666666666667,
-      "preference_contamination_avg": 0.6266666666666667
+      "headline_metric": "objective_correctness_avg",
+      "headline_value": 0.4266666666666667,
+      "preference_contamination_avg": 0.6266666666666667,
+      "suppress_pass_avg": 0.3333333333333333
     },
     {
       "task": "personalized_memory_use",
       "arm": "with_memory",
       "n_judged": 300,
-      "headline_metric": "memory_use_pass_avg",
-      "headline_value": 0.5066666666666667,
-      "answer_accuracy_avg": 0.51,
-      "preference_used_avg": 0.69
+      "headline_metric": "answer_accuracy_avg",
+      "headline_value": 0.51,
+      "preference_used_avg": 0.69,
+      "memory_use_pass_avg": 0.5066666666666667
     },
     {
       "task": "valid_memory_selection",
       "arm": "with_memory",
       "n_judged": 350,
-      "headline_metric": "valid_selection_pass_avg",
-      "headline_value": 0.38285714285714284,
-      "uses_latest_preference_avg": 0.46418338108882523,
-      "outdated_preference_contamination_avg": 0.5845272206303725
+      "headline_metric": "uses_latest_preference_avg",
+      "headline_value": 0.46285714285714286,
+      "outdated_preference_contamination_avg": 0.5845272206303725,
+      "valid_selection_pass_avg": 0.3839541547277937
     }
   ]
 }

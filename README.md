@@ -115,6 +115,12 @@ the preferred judge hasn't scored that task yet. Then add `<run_id>` to
   `local_qwen3_8b_live_traj`, `local_hint_rl134_live_traj`,
   `local_hint_memonly_needs_iter134_live_traj`,
   `local_hint_4b_instruct2507_live_traj`.
+- Headline metric per task is the paper's "Acc." column (first metric):
+  `accuracy_avg` for scope/evidence, `objective_correctness_avg` for
+  objective fact, `answer_accuracy_avg` for personalized use,
+  `uses_latest_preference_avg` for valid selection. The old composite
+  `*_pass_avg` fields (which weren't always equal to Acc.) are kept as
+  extra fields in each result but no longer drive the table.
 - Pass rate denominator = every row in `judged_<task>.jsonl` (`n_judged`),
   including rows with `judge_parse_ok=false`/`judge_error` set — those just
   never count as a pass. This matches how the eval harness itself reports
@@ -122,6 +128,13 @@ the preferred judge hasn't scored that task yet. Then add `<run_id>` to
   with what's reported from the run.
 - `n_judged` varies by task for one structural reason: `valid_memory_selection`
   has 350 samples by design vs. 300 for the other four tasks.
+- Nine Qwen3-8B literature baselines added (`other` group), Acc.-only,
+  transcribed from the paper's main-results table via
+  `scripts/seed_qwen3_8b_baselines.py`: No Memory, Full Dialog, NaiveRAG,
+  Mem0, A-Mem, LightMem, MemGPT, MemoryBank, SuperMemory. `No Memory` only
+  reports Objective Fact Judgment (the only task it's evaluated on in the
+  paper); other tasks show as `—`. These have no `n_judged` (not resampled
+  here, just literature numbers).
 - The three old `rerank_online_hint*` runs (built from the now-deprecated
   `outputs/_legacy/` source) were removed.
 - Dataset: `locomo-refined` added as an empty scaffold (no tasks/runs yet) —
