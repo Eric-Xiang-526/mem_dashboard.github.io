@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mem Dashboard</title>
+<link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <span class="brand">Mem Dashboard</span>
+    </header>
+
+    <div class="tabs" id="dataset-tabs" role="tablist"></div>
+
+    <p class="dataset-desc" id="dataset-desc"></p>
+
+    <main id="sections"></main>
+
+    <footer class="footer">
+      <span>Reads JSON from <code>data/&lt;dataset&gt;/</code> — no backend, safe for GitHub Pages.</span>
+    </footer>
+  </div>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

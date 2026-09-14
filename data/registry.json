@@ -1,0 +1,14 @@
+{
+  "datasets": [
+    {
+      "id": "memsyco-rerankmem-hint",
+      "name": "MemSyco · RerankMem (Hint)",
+      "path": "data/memsyco-rerankmem-hint/"
+    },
+    {
+      "id": "locomo-refined",
+      "name": "LoCoMo (Refined)",
+      "path": "data/locomo-refined/"
+    }
+  ]
+}

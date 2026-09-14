@@ -1,0 +1,183 @@
+/* ===== Design tokens ===== */
+:root {
+  color-scheme: light;
+  --surface-0: #f9f9f7;
+  --surface-1: #fcfcfb;
+  --surface-2: #ffffff;
+  --text-primary: #0b0b0b;
+  --text-secondary: #52514e;
+  --text-muted: #898781;
+  --border: rgba(11, 11, 11, 0.10);
+  --grid: #e1e0d9;
+  --baseline: #c3c2b7;
+
+  --cat-main: #2a78d6;
+  --cat-ablation: #eb6834;
+  --cat-other: #1baf7a;
+
+  /* sequential blue ramp, light surface: low -> high */
+  --seq-0: #cde2fb;
+  --seq-1: #9ec5f4;
+  --seq-2: #6da7ec;
+  --seq-3: #3987e5;
+  --seq-4: #256abf;
+  --seq-5: #184f95;
+  --seq-6: #0d366b;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --surface-0: #0d0d0d;
+    --surface-1: #1a1a19;
+    --surface-2: #202020;
+    --text-primary: #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted: #898781;
+    --border: rgba(255,255,255,0.10);
+    --grid: #2c2c2a;
+    --baseline: #383835;
+
+    --cat-main: #3987e5;
+    --cat-ablation: #d95926;
+    --cat-other: #199e70;
+
+    /* dark surface: anchor "more prominent" = higher value */
+    --seq-0: #184f95;
+    --seq-1: #1c5cab;
+    --seq-2: #256abf;
+    --seq-3: #2a78d6;
+    --seq-4: #3987e5;
+    --seq-5: #5598e7;
+    --seq-6: #86b6ef;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  background: var(--surface-0);
+  color: var(--text-primary);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 14px;
+}
+
+.app {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px 24px 40px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+.brand { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; }
+
+.dataset-desc {
+  margin: 0 0 24px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.tabs {
+  display: inline-flex;
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 3px;
+  gap: 2px;
+  margin-bottom: 14px;
+}
+.tab {
+  font: inherit;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.tab.is-active {
+  background: var(--surface-2);
+  color: var(--text-primary);
+  box-shadow: 0 1px 2px rgba(11,11,11,0.08);
+}
+
+.run-section { margin-bottom: 32px; }
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+.section-title .badge-dot { width: 9px; height: 9px; }
+
+.table-scroll { overflow-x: auto; }
+.results-table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 640px;
+}
+.results-table th, .results-table td {
+  padding: 9px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--grid);
+  white-space: nowrap;
+}
+.results-table thead th {
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+  font-weight: 600;
+  border-bottom: 1px solid var(--baseline);
+}
+.results-table td.metric-cell {
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+.results-table td.mean-cell {
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  border-left: 1px solid var(--baseline);
+}
+.results-table td.notes-cell {
+  white-space: normal;
+  color: var(--text-secondary);
+  font-size: 12.5px;
+  max-width: 260px;
+}
+.run-cell { display: flex; flex-direction: column; gap: 2px; }
+.run-label { font-weight: 600; }
+.run-sub { font-size: 11px; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+
+.badge-dot { width: 7px; height: 7px; border-radius: 50%; flex: none; }
+
+.footer {
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 12px;
+}
+.footer code {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 1px 5px;
+}
+
+.empty-state {
+  padding: 24px 8px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 13px;
+}

@@ -1,0 +1,20 @@
+{
+  "id": "memsyco-rerankmem-hint",
+  "name": "MemSyco · RerankMem (Hint)",
+  "benchmark": "MemSyco-Bench",
+  "description": "TODO: describe this dataset/handoff once you send over the notes (what RerankMem is, what 'hint' mode means, what question these runs are trying to answer).",
+  "source_path": "infer/handoffs/memsyco-rerankmem-hint/outputs",
+  "tasks": [
+    { "id": "personalized_memory_use", "short": "pers_mem_use", "headline_metric": "memory_use_pass_avg" },
+    { "id": "valid_memory_selection", "short": "valid_sel", "headline_metric": "valid_selection_pass_avg" },
+    { "id": "memory_evidence_conflict", "short": "evid_conflict", "headline_metric": "evidence_pass_avg" },
+    { "id": "contextual_scope_control", "short": "scope_ctrl", "headline_metric": "scope_pass_avg" },
+    { "id": "objective_fact_judgment", "short": "obj_fact", "headline_metric": "suppress_pass_avg" }
+  ],
+  "runs": [
+    "local_qwen3_8b_live_traj",
+    "local_hint_rl134_live_traj",
+    "local_hint_memonly_needs_iter134_live_traj",
+    "local_hint_4b_instruct2507_live_traj"
+  ]
+}

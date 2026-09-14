@@ -1,0 +1,9 @@
+{
+  "id": "locomo-refined",
+  "name": "LoCoMo (Refined)",
+  "benchmark": "LoCoMo_refined",
+  "description": "TODO: describe this dataset/handoff once results are provided.",
+  "source_path": "TODO",
+  "tasks": [],
+  "runs": []
+}

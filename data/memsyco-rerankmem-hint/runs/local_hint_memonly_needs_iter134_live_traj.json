@@ -1,0 +1,58 @@
+{
+  "id": "local_hint_memonly_needs_iter134_live_traj",
+  "label": "Hint memonly (needs iter134) live traj",
+  "group": "main",
+  "description": "MemSyco-Bench, RerankMem arm, hint memonly (needs iter134) \u751f\u6210\u6a21\u578b\u3002",
+  "generation_model": "qwen3-8b",
+  "judge_models": [
+    "deepseek-v4.1-flash"
+  ],
+  "date": "",
+  "results": [
+    {
+      "task": "contextual_scope_control",
+      "arm": "with_memory",
+      "n_judged": 300,
+      "headline_metric": "scope_pass_avg",
+      "headline_value": 0.38666666666666666,
+      "accuracy_avg": 0.38666666666666666,
+      "incorrectly_used_preference_avg": 0.26666666666666666
+    },
+    {
+      "task": "memory_evidence_conflict",
+      "arm": "with_memory",
+      "n_judged": 300,
+      "headline_metric": "evidence_pass_avg",
+      "headline_value": 0.8166666666666667,
+      "accuracy_avg": 0.8166666666666667,
+      "misled_by_conflicting_memory_avg": 0.09333333333333334
+    },
+    {
+      "task": "objective_fact_judgment",
+      "arm": "with_memory",
+      "n_judged": 300,
+      "headline_metric": "suppress_pass_avg",
+      "headline_value": 0.29,
+      "objective_correctness_avg": 0.3,
+      "preference_contamination_avg": 0.5233333333333333
+    },
+    {
+      "task": "personalized_memory_use",
+      "arm": "with_memory",
+      "n_judged": 300,
+      "headline_metric": "memory_use_pass_avg",
+      "headline_value": 0.37666666666666665,
+      "answer_accuracy_avg": 0.38333333333333336,
+      "preference_used_avg": 0.5566666666666666
+    },
+    {
+      "task": "valid_memory_selection",
+      "arm": "with_memory",
+      "n_judged": 350,
+      "headline_metric": "valid_selection_pass_avg",
+      "headline_value": 0.42857142857142855,
+      "uses_latest_preference_avg": 0.4742857142857143,
+      "outdated_preference_contamination_avg": 0.4085714285714286
+    }
+  ]
+}
