@@ -5,7 +5,16 @@
   "description": "RerankMem hint mode evaluated on the refined LoCoMo QA set (1382 questions), scored by an LLM judge plus F1/BLEU against the reference answer.",
   "source_path": "infer/handoffs/locomo-rerankmem-hint/outputs",
   "tasks": [
-    { "id": "locomo_qa", "short": "locomo_qa", "headline_metric": "llm_score_avg", "secondary_metric": "f1_score_avg", "secondary_label": "f1" }
+    {
+      "id": "locomo_qa",
+      "short": "locomo_qa",
+      "headline_metric": "llm_score_avg",
+      "metrics": [
+        { "key": "llm_score_avg", "label": "LLM Score" },
+        { "key": "f1_score_avg", "label": "F1" },
+        { "key": "bleu_score_avg", "label": "BLEU" }
+      ]
+    }
   ],
   "runs": [
     "locomo_hint_instruct2507",

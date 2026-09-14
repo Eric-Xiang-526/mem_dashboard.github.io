@@ -58,11 +58,14 @@ function taskValue(run, taskId) {
   return r ? r.headline_value : null;
 }
 
-function taskSecondaryValue(run, task) {
-  if (!task.secondary_metric) return null;
+function taskMetrics(task) {
+  return task.metrics && task.metrics.length ? task.metrics : [{ key: task.headline_metric, label: "Value" }];
+}
+
+function taskMetricValue(run, task, metricKey) {
   const r = run.results.find((x) => x.task === task.id);
   if (!r) return null;
-  const v = r[task.secondary_metric];
+  const v = metricKey === task.headline_metric ? r.headline_value : r[metricKey];
   return typeof v === "number" ? v : null;
 }
 
@@ -80,9 +83,10 @@ function sectionHtml(group) {
   const runs = state.runs.filter((r) => r.group === group);
   const sorted = [...runs].sort((a, b) => (runMean(b) ?? -1) - (runMean(a) ?? -1));
 
+  const totalMetricCols = state.meta.tasks.reduce((n, t) => n + taskMetrics(t).length, 0);
   const bodyHtml = sorted.length
     ? sorted.map((run) => rowHtml(run)).join("")
-    : `<tr><td colspan="${state.meta.tasks.length + 3}"><div class="empty-state">No runs in this group yet.</div></td></tr>`;
+    : `<tr><td colspan="${totalMetricCols + 3}"><div class="empty-state">No runs in this group yet.</div></td></tr>`;
 
   return `
     <section class="run-section">
@@ -94,10 +98,13 @@ function sectionHtml(group) {
         <table class="results-table">
           <thead>
             <tr>
-              <th>Run</th>
-              ${state.meta.tasks.map((t) => `<th>${escapeHtml(t.short)}</th>`).join("")}
-              <th>Avg</th>
-              <th>Notes</th>
+              <th rowspan="2">Run</th>
+              ${state.meta.tasks.map((t) => `<th colspan="${taskMetrics(t).length}">${escapeHtml(t.short)}</th>`).join("")}
+              <th rowspan="2">Avg</th>
+              <th rowspan="2">Notes</th>
+            </tr>
+            <tr>
+              ${state.meta.tasks.map((t) => taskMetrics(t).map((m) => `<th class="metric-subhead">${escapeHtml(m.label)}</th>`).join("")).join("")}
             </tr>
           </thead>
           <tbody>${bodyHtml}</tbody>
@@ -109,14 +116,16 @@ function sectionHtml(group) {
 
 function rowHtml(run) {
   const cells = state.meta.tasks
-    .map((t) => {
-      const v = taskValue(run, t.id);
-      if (v === null || v === undefined) return `<td class="metric-cell">—</td>`;
-      const { bg, fg } = seqColor(v);
-      const sv = taskSecondaryValue(run, t);
-      const secondaryHtml = sv === null ? "" : `<span class="metric-secondary" style="color:${fg}">${t.secondary_label || "2nd"} ${pct(sv)}</span>`;
-      return `<td class="metric-cell" style="background:${bg};color:${fg}"><span class="metric-primary">${pct(v)}</span>${secondaryHtml}</td>`;
-    })
+    .map((t) =>
+      taskMetrics(t)
+        .map((m) => {
+          const v = taskMetricValue(run, t, m.key);
+          if (v === null || v === undefined) return `<td class="metric-cell">—</td>`;
+          const { bg, fg } = seqColor(v);
+          return `<td class="metric-cell" style="background:${bg};color:${fg}">${pct(v)}</td>`;
+        })
+        .join("")
+    )
     .join("");
   const m = runMean(run);
   const n = run.results[0] ? run.results[0].n_judged : null;

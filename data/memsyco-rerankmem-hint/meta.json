@@ -5,11 +5,51 @@
   "description": "TODO: describe this dataset/handoff once you send over the notes (what RerankMem is, what 'hint' mode means, what question these runs are trying to answer).",
   "source_path": "infer/handoffs/memsyco-rerankmem-hint/outputs",
   "tasks": [
-    { "id": "personalized_memory_use", "short": "pers_mem_use", "headline_metric": "answer_accuracy_avg", "secondary_metric": "preference_used_avg", "secondary_label": "pref used" },
-    { "id": "valid_memory_selection", "short": "valid_sel", "headline_metric": "uses_latest_preference_avg", "secondary_metric": "outdated_preference_contamination_avg", "secondary_label": "outdated" },
-    { "id": "memory_evidence_conflict", "short": "evid_conflict", "headline_metric": "accuracy_avg", "secondary_metric": "misled_by_conflicting_memory_avg", "secondary_label": "misled" },
-    { "id": "contextual_scope_control", "short": "scope_ctrl", "headline_metric": "accuracy_avg", "secondary_metric": "incorrectly_used_preference_avg", "secondary_label": "wrong use" },
-    { "id": "objective_fact_judgment", "short": "obj_fact", "headline_metric": "objective_correctness_avg", "secondary_metric": "preference_answer_selected_avg", "secondary_label": "pref selected" }
+    {
+      "id": "personalized_memory_use",
+      "short": "pers_mem_use",
+      "headline_metric": "answer_accuracy_avg",
+      "metrics": [
+        { "key": "answer_accuracy_avg", "label": "Acc." },
+        { "key": "preference_used_avg", "label": "Correct Mem Use" }
+      ]
+    },
+    {
+      "id": "valid_memory_selection",
+      "short": "valid_sel",
+      "headline_metric": "uses_latest_preference_avg",
+      "metrics": [
+        { "key": "uses_latest_preference_avg", "label": "Acc." },
+        { "key": "outdated_preference_contamination_avg", "label": "Outdated Mem" }
+      ]
+    },
+    {
+      "id": "memory_evidence_conflict",
+      "short": "evid_conflict",
+      "headline_metric": "accuracy_avg",
+      "metrics": [
+        { "key": "accuracy_avg", "label": "Acc." },
+        { "key": "misled_by_conflicting_memory_avg", "label": "Syco.Rate" }
+      ]
+    },
+    {
+      "id": "contextual_scope_control",
+      "short": "scope_ctrl",
+      "headline_metric": "accuracy_avg",
+      "metrics": [
+        { "key": "accuracy_avg", "label": "Acc." },
+        { "key": "incorrectly_used_preference_avg", "label": "Syco.Rate" }
+      ]
+    },
+    {
+      "id": "objective_fact_judgment",
+      "short": "obj_fact",
+      "headline_metric": "objective_correctness_avg",
+      "metrics": [
+        { "key": "objective_correctness_avg", "label": "Acc." },
+        { "key": "preference_answer_selected_avg", "label": "Syco.Rate" }
+      ]
+    }
   ],
   "runs": [
     "local_qwen3_8b_live_traj",
