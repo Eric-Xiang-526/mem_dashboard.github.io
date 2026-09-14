@@ -36,7 +36,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 TASK_JUDGE_FIELDS = {
     "contextual_scope_control": ("accuracy", ["incorrectly_used_preference", "scope_pass"]),
     "memory_evidence_conflict": ("accuracy", ["misled_by_conflicting_memory", "evidence_pass"]),
-    "objective_fact_judgment": ("objective_correctness", ["preference_contamination", "suppress_pass"]),
+    "objective_fact_judgment": ("objective_correctness", ["preference_contamination", "preference_answer_selected", "suppress_pass"]),
     "personalized_memory_use": ("answer_accuracy", ["preference_used", "memory_use_pass"]),
     "valid_memory_selection": ("uses_latest_preference", ["outdated_preference_contamination", "valid_selection_pass"]),
 }

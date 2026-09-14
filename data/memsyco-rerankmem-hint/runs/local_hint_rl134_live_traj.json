@@ -34,6 +34,7 @@
       "headline_metric": "objective_correctness_avg",
       "headline_value": 0.3933333333333333,
       "preference_contamination_avg": 0.5566666666666666,
+      "preference_answer_selected_avg": 0.5433333333333333,
       "suppress_pass_avg": 0.3933333333333333
     },
     {

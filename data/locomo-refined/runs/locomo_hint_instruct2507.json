@@ -1,0 +1,39 @@
+{
+  "id": "locomo_hint_instruct2507",
+  "label": "Hint (Qwen3-4B-Instruct-2507)",
+  "group": "main",
+  "description": "RerankMem hint mode on LoCoMo (refined), instruct-2507 checkpoint.",
+  "generation_model": "qwen3-4b-instruct-2507",
+  "judge_models": [
+    "refined"
+  ],
+  "date": "",
+  "results": [
+    {
+      "task": "locomo_qa",
+      "arm": "with_memory",
+      "n_judged": 1382,
+      "headline_metric": "llm_score_avg",
+      "headline_value": 0.5014471780028944,
+      "llm_score_avg": 0.5014471780028944,
+      "f1_score_avg": 0.447349895490317,
+      "bleu_score_avg": 0.3828106579693268,
+      "cat1_llm_score_avg": 0.38028169014084506,
+      "cat1_f1_score_avg": 0.3938705190661458,
+      "cat1_bleu_score_avg": 0.30838042871665516,
+      "cat1_n": 213,
+      "cat2_llm_score_avg": 0.43812709030100333,
+      "cat2_f1_score_avg": 0.42815387281745737,
+      "cat2_bleu_score_avg": 0.3624536193703509,
+      "cat2_n": 299,
+      "cat3_llm_score_avg": 0.4117647058823529,
+      "cat3_f1_score_avg": 0.28990582280825244,
+      "cat3_bleu_score_avg": 0.23493346002192664,
+      "cat3_n": 68,
+      "cat4_llm_score_avg": 0.5648379052369077,
+      "cat4_f1_score_avg": 0.4820592656897108,
+      "cat4_bleu_score_avg": 0.4227059732216161,
+      "cat4_n": 802
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "locomo_hint_rl134",
+  "label": "Hint (RL iter134)",
+  "group": "main",
+  "description": "RerankMem hint mode on LoCoMo (refined), RL checkpoint iter134 (answer-only).",
+  "generation_model": "rl-iter134",
+  "judge_models": [
+    "refined"
+  ],
+  "date": "",
+  "results": [
+    {
+      "task": "locomo_qa",
+      "arm": "with_memory",
+      "n_judged": 1382,
+      "headline_metric": "llm_score_avg",
+      "headline_value": 0.4992764109985528,
+      "llm_score_avg": 0.4992764109985528,
+      "f1_score_avg": 0.35781718973361043,
+      "bleu_score_avg": 0.29648171252238187,
+      "cat1_llm_score_avg": 0.3427230046948357,
+      "cat1_f1_score_avg": 0.2900497586113084,
+      "cat1_bleu_score_avg": 0.22698840930762687,
+      "cat1_n": 213,
+      "cat2_llm_score_avg": 0.5585284280936454,
+      "cat2_f1_score_avg": 0.4578734599453973,
+      "cat2_bleu_score_avg": 0.3789089481376165,
+      "cat2_n": 299,
+      "cat3_llm_score_avg": 0.39705882352941174,
+      "cat3_f1_score_avg": 0.24355250977385517,
+      "cat3_bleu_score_avg": 0.19906420278681838,
+      "cat3_n": 68,
+      "cat4_llm_score_avg": 0.527431421446384,
+      "cat4_f1_score_avg": 0.348200776108909,
+      "cat4_bleu_score_avg": 0.29246764867924724,
+      "cat4_n": 802
+    }
+  ]
+}

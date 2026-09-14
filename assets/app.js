@@ -58,6 +58,14 @@ function taskValue(run, taskId) {
   return r ? r.headline_value : null;
 }
 
+function taskSecondaryValue(run, task) {
+  if (!task.secondary_metric) return null;
+  const r = run.results.find((x) => x.task === task.id);
+  if (!r) return null;
+  const v = r[task.secondary_metric];
+  return typeof v === "number" ? v : null;
+}
+
 function runMean(run) {
   const vals = state.meta.tasks.map((t) => taskValue(run, t.id)).filter((v) => v !== null && v !== undefined);
   if (!vals.length) return null;
@@ -105,7 +113,9 @@ function rowHtml(run) {
       const v = taskValue(run, t.id);
       if (v === null || v === undefined) return `<td class="metric-cell">—</td>`;
       const { bg, fg } = seqColor(v);
-      return `<td class="metric-cell" style="background:${bg};color:${fg}">${pct(v)}</td>`;
+      const sv = taskSecondaryValue(run, t);
+      const secondaryHtml = sv === null ? "" : `<span class="metric-secondary" style="color:${fg}">${t.secondary_label || "2nd"} ${pct(sv)}</span>`;
+      return `<td class="metric-cell" style="background:${bg};color:${fg}"><span class="metric-primary">${pct(v)}</span>${secondaryHtml}</td>`;
     })
     .join("");
   const m = runMean(run);

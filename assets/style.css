@@ -143,6 +143,14 @@ html, body {
   font-variant-numeric: tabular-nums;
   font-weight: 600;
 }
+.metric-primary { display: block; }
+.metric-secondary {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 500;
+  opacity: 0.75;
+  text-transform: lowercase;
+}
 .results-table td.mean-cell {
   text-align: center;
   font-variant-numeric: tabular-nums;

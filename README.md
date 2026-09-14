@@ -18,6 +18,9 @@ data/<dataset-id>/
 scripts/ingest_run.py         legacy helper: summary.json + run_config.txt -> run JSON
 scripts/ingest_outputs_run.py current helper: outputs/<gen_run>/<judge_model>/<ts>/
                               (judged_<task>.jsonl or results_<task>.json) -> run JSON
+scripts/ingest_locomo_scored_summary.py
+                              locomo-refined helper: predictions_..._scored_summary.json
+                              -> run JSON (single "locomo_qa" task)
 ```
 
 The dataset switcher is a tab bar (one tab per dataset, more will be added
@@ -137,7 +140,28 @@ the preferred judge hasn't scored that task yet. Then add `<run_id>` to
   here, just literature numbers).
 - The three old `rerank_online_hint*` runs (built from the now-deprecated
   `outputs/_legacy/` source) were removed.
-- Dataset: `locomo-refined` added as an empty scaffold (no tasks/runs yet) —
-  waiting on the actual results handoff.
+- Each task in `memsyco-rerankmem-hint`'s `meta.json` now also carries a
+  `secondary_metric`/`secondary_label` — the paper's second column per task
+  (a "wrong behavior rate", not another pass/accuracy stat):
+  `incorrectly_used_preference_avg` (scope), `misled_by_conflicting_memory_avg`
+  (evidence conflict), `preference_answer_selected_avg` (objective fact),
+  `preference_used_avg` (personalized use), `outdated_preference_contamination_avg`
+  (valid selection). Rendered as a small line under the Acc. value in each
+  table cell. Only the four real RerankMem-family runs have it — the
+  Qwen3-8B literature baselines were only transcribed Acc.-only, so their
+  cells show just the primary value.
+- Dataset: `locomo-refined` added, sourced from
+  `infer/handoffs/locomo-rerankmem-hint/outputs`, via
+  `scripts/ingest_locomo_scored_summary.py` (reads a flat
+  `predictions_<run>_scored_summary.json`, one task `locomo_qa`, headline =
+  `llm_score` (the pipeline's own `primary_metric`), secondary = `f1_score`;
+  `bleu_score` and a per-category (1-4) breakdown are kept as extra fields).
+  Two runs ingested so far, both `main`, both n=1382:
+  `locomo_hint_instruct2507` (llm_score 0.5014) and `locomo_hint_rl134`
+  (llm_score 0.4993). A third run, `predictions_locomo_hint_rl134_classic_
+  20260914_1544.jsonl`, has predictions but **no `_scored*` file yet** — it
+  hasn't been scored, so it isn't ingested. Add it once its
+  `_scored_summary.json` shows up.
 - Dataset and run descriptions are placeholders (`TODO`) pending the
-  write-up.
+  write-up, except locomo-refined's dataset description and the two ingested
+  run descriptions, which are filled in.

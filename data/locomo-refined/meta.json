@@ -2,8 +2,13 @@
   "id": "locomo-refined",
   "name": "LoCoMo (Refined)",
   "benchmark": "LoCoMo_refined",
-  "description": "TODO: describe this dataset/handoff once results are provided.",
-  "source_path": "TODO",
-  "tasks": [],
-  "runs": []
+  "description": "RerankMem hint mode evaluated on the refined LoCoMo QA set (1382 questions), scored by an LLM judge plus F1/BLEU against the reference answer.",
+  "source_path": "infer/handoffs/locomo-rerankmem-hint/outputs",
+  "tasks": [
+    { "id": "locomo_qa", "short": "locomo_qa", "headline_metric": "llm_score_avg", "secondary_metric": "f1_score_avg", "secondary_label": "f1" }
+  ],
+  "runs": [
+    "locomo_hint_instruct2507",
+    "locomo_hint_rl134"
+  ]
 }
