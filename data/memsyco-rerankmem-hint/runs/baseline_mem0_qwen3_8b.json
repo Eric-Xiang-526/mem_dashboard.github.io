@@ -1,7 +1,7 @@
 {
   "id": "baseline_mem0_qwen3_8b",
   "label": "Mem0 (Qwen3-8B)",
-  "group": "other",
+  "group": "main",
   "description": "Literature baseline, Acc. column only, from the paper's main-results table.",
   "generation_model": "qwen3-8b",
   "date": "",

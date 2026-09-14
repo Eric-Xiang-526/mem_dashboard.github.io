@@ -120,7 +120,7 @@ def main():
         out = {
             "id": run_id,
             "label": LABELS[method],
-            "group": "other",
+            "group": "main",
             "description": "Literature baseline, Acc. column only, from the paper's main-results table.",
             "generation_model": "qwen3-8b",
             "date": "",

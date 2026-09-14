@@ -128,7 +128,7 @@ the preferred judge hasn't scored that task yet. Then add `<run_id>` to
   with what's reported from the run.
 - `n_judged` varies by task for one structural reason: `valid_memory_selection`
   has 350 samples by design vs. 300 for the other four tasks.
-- Nine Qwen3-8B literature baselines added (`other` group), Acc.-only,
+- Nine Qwen3-8B literature baselines added (`main` group), Acc.-only,
   transcribed from the paper's main-results table via
   `scripts/seed_qwen3_8b_baselines.py`: No Memory, Full Dialog, NaiveRAG,
   Mem0, A-Mem, LightMem, MemGPT, MemoryBank, SuperMemory. `No Memory` only
