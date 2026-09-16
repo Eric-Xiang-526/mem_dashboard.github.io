@@ -1,0 +1,34 @@
+{
+  "id": "persist_hint_rl134",
+  "label": "Hint (RL134)",
+  "group": "main",
+  "description": "RerankMem hint mode, RL-iter134 generation, evaluated on PersistBench's 3 memory-persistence failure modes.",
+  "generation_model": "persist_qwen3-4b-rl-iter134_qwen3-8b",
+  "judge_models": [
+    "deepseek-v4.1-flash"
+  ],
+  "date": "",
+  "results": [
+    {
+      "task": "cross_domain",
+      "n_judged": 200,
+      "headline_metric": "score_avg",
+      "headline_value": 2.17,
+      "score_avg": 2.17
+    },
+    {
+      "task": "sycophancy",
+      "n_judged": 200,
+      "headline_metric": "score_avg",
+      "headline_value": 3.945,
+      "score_avg": 3.945
+    },
+    {
+      "task": "beneficial_memory_usage",
+      "n_judged": 100,
+      "headline_metric": "score_avg",
+      "headline_value": 2.57,
+      "score_avg": 2.57
+    }
+  ]
+}

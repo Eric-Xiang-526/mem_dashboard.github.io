@@ -1,0 +1,87 @@
+{
+  "id": "memtrap-rerankmem-hint",
+  "name": "MemTrapBench · RerankMem (Hint)",
+  "benchmark": "MemTrapBench",
+  "description": "RerankMem hint mode evaluated on MemTrapBench's 6 adversarial memory-trap tasks. Each response is scored 1-5 on 2-4 judge dimensions per task (factual correctness, instruction compliance, relevance/purity, delivery efficiency, or safety-specific variants for poison); values shown are raw 1-5 averages, not normalized to a 0-1 scale.",
+  "source_path": "infer/outputs/memtrap",
+  "tasks": [
+    {
+      "id": "hallucination",
+      "short": "hallucination",
+      "headline_metric": "overall_avg",
+      "format": "raw",
+      "metrics": [
+        { "key": "overall_avg", "label": "Overall" },
+        { "key": "dimension_1_factual_correctness_avg", "label": "Factual" },
+        { "key": "dimension_2_instruction_compliance_avg", "label": "Instr." },
+        { "key": "dimension_3_relevance_purity_avg", "label": "Relevance" },
+        { "key": "dimension_4_delivery_efficiency_avg", "label": "Delivery" }
+      ]
+    },
+    {
+      "id": "hurt",
+      "short": "hurt",
+      "headline_metric": "overall_avg",
+      "format": "raw",
+      "metrics": [
+        { "key": "overall_avg", "label": "Overall" },
+        { "key": "dimension_1_factual_correctness_avg", "label": "Factual" },
+        { "key": "dimension_2_instruction_compliance_avg", "label": "Instr." },
+        { "key": "dimension_3_relevance_purity_avg", "label": "Relevance" },
+        { "key": "dimension_4_delivery_efficiency_avg", "label": "Delivery" }
+      ]
+    },
+    {
+      "id": "inertia",
+      "short": "inertia",
+      "headline_metric": "overall_avg",
+      "format": "raw",
+      "metrics": [
+        { "key": "overall_avg", "label": "Overall" },
+        { "key": "dimension_1_factual_correctness_avg", "label": "Factual" },
+        { "key": "dimension_2_instruction_compliance_avg", "label": "Instr." },
+        { "key": "dimension_3_relevance_purity_avg", "label": "Relevance" },
+        { "key": "dimension_4_delivery_efficiency_avg", "label": "Delivery" }
+      ]
+    },
+    {
+      "id": "number_game",
+      "short": "number_game",
+      "headline_metric": "overall_avg",
+      "format": "raw",
+      "metrics": [
+        { "key": "overall_avg", "label": "Overall" },
+        { "key": "dimension_1_factual_correctness_avg", "label": "Factual" },
+        { "key": "dimension_2_instruction_compliance_avg", "label": "Instr." }
+      ]
+    },
+    {
+      "id": "poison",
+      "short": "poison",
+      "headline_metric": "overall_avg",
+      "format": "raw",
+      "metrics": [
+        { "key": "overall_avg", "label": "Overall" },
+        { "key": "dimension_1_safety_factual_correctness_avg", "label": "Safety" },
+        { "key": "dimension_2_relevance_purity_avg", "label": "Relevance" }
+      ]
+    },
+    {
+      "id": "unclear",
+      "short": "unclear",
+      "headline_metric": "overall_avg",
+      "format": "raw",
+      "metrics": [
+        { "key": "overall_avg", "label": "Overall" },
+        { "key": "dimension_1_factual_correctness_avg", "label": "Factual" },
+        { "key": "dimension_2_instruction_compliance_avg", "label": "Instr." },
+        { "key": "dimension_3_relevance_purity_avg", "label": "Relevance" },
+        { "key": "dimension_4_delivery_efficiency_avg", "label": "Delivery" }
+      ]
+    }
+  ],
+  "runs": [
+    "memtrap_hint_instruct2507",
+    "memtrap_hint_rl134"
+  ]
+}

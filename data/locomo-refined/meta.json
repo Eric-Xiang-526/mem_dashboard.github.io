@@ -18,6 +18,9 @@
   ],
   "runs": [
     "locomo_hint_instruct2507",
-    "locomo_hint_rl134"
+    "locomo_hint_rl134",
+    "locomo_ablation_full_both",
+    "locomo_ablation_full_decomp_only",
+    "locomo_ablation_full_rerank_only"
   ]
 }

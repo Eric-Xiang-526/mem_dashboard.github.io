@@ -2,44 +2,55 @@
   "id": "baseline_lightmem_qwen3_8b",
   "label": "LightMem (Qwen3-8B)",
   "group": "main",
-  "description": "Literature baseline, Acc. column only, from the paper's main-results table.",
+  "description": "Qwen3-8B baseline, computed from qwen3_8b_paper_tasks eval outputs (real judged results, not paper-table transcription).",
   "generation_model": "qwen3-8b",
   "date": "",
   "results": [
     {
       "task": "objective_fact_judgment",
-      "arm": "baseline",
-      "n_judged": null,
+      "arm": "with_memory",
+      "n_judged": 300,
       "headline_metric": "objective_correctness_avg",
-      "headline_value": 0.3467
+      "headline_value": 0.3933333333333333,
+      "preference_contamination_avg": 0.5666666666666667,
+      "preference_answer_selected_avg": 0.48333333333333334,
+      "suppress_pass_avg": 0.36
     },
     {
       "task": "contextual_scope_control",
-      "arm": "baseline",
-      "n_judged": null,
+      "arm": "with_memory",
+      "n_judged": 300,
       "headline_metric": "accuracy_avg",
-      "headline_value": 0.1367
+      "headline_value": 0.20666666666666667,
+      "incorrectly_used_preference_avg": 0.22333333333333333,
+      "scope_pass_avg": 0.20666666666666667
     },
     {
       "task": "memory_evidence_conflict",
-      "arm": "baseline",
-      "n_judged": null,
+      "arm": "with_memory",
+      "n_judged": 300,
       "headline_metric": "accuracy_avg",
-      "headline_value": 0.023399999999999997
+      "headline_value": 0.03,
+      "misled_by_conflicting_memory_avg": 0.78,
+      "evidence_pass_avg": 0.03
     },
     {
       "task": "personalized_memory_use",
-      "arm": "baseline",
-      "n_judged": null,
+      "arm": "with_memory",
+      "n_judged": 300,
       "headline_metric": "answer_accuracy_avg",
-      "headline_value": 0.4816
+      "headline_value": 0.5266666666666666,
+      "preference_used_avg": 0.78,
+      "memory_use_pass_avg": 0.5133333333333333
     },
     {
       "task": "valid_memory_selection",
-      "arm": "baseline",
-      "n_judged": null,
+      "arm": "with_memory",
+      "n_judged": 350,
       "headline_metric": "uses_latest_preference_avg",
-      "headline_value": 0.2407
+      "headline_value": 0.3942857142857143,
+      "outdated_preference_contamination_avg": 0.7142857142857143,
+      "valid_selection_pass_avg": 0.2542857142857143
     }
   ]
 }

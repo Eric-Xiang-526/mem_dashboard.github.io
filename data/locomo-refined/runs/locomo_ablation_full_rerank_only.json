@@ -1,0 +1,39 @@
+{
+  "id": "locomo_ablation_full_rerank_only",
+  "label": "Ablation: rerank only",
+  "group": "ablation",
+  "description": "Decompose stage removed; rerank stage only.",
+  "generation_model": "qwen3-8b",
+  "judge_models": [
+    "refined"
+  ],
+  "date": "",
+  "results": [
+    {
+      "task": "locomo_qa",
+      "arm": "with_memory",
+      "n_judged": 1382,
+      "headline_metric": "llm_score_avg",
+      "headline_value": 0.5506512301013025,
+      "llm_score_avg": 0.5506512301013025,
+      "f1_score_avg": 0.3648694734106174,
+      "bleu_score_avg": 0.2916167294331956,
+      "cat1_llm_score_avg": 0.3474178403755869,
+      "cat1_f1_score_avg": 0.26594222387081456,
+      "cat1_bleu_score_avg": 0.2069523915330969,
+      "cat1_n": 213,
+      "cat2_llm_score_avg": 0.6588628762541806,
+      "cat2_f1_score_avg": 0.4831568514681764,
+      "cat2_bleu_score_avg": 0.3887052417893422,
+      "cat2_n": 299,
+      "cat3_llm_score_avg": 0.45588235294117646,
+      "cat3_f1_score_avg": 0.3038015783610311,
+      "cat3_bleu_score_avg": 0.23635981257848226,
+      "cat3_n": 68,
+      "cat4_llm_score_avg": 0.5723192019950125,
+      "cat4_f1_score_avg": 0.35222133747064205,
+      "cat4_bleu_score_avg": 0.28259117971293835,
+      "cat4_n": 802
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "id": "memtrap_hint_rl134",
+  "label": "Hint (RL134)",
+  "group": "main",
+  "description": "RerankMem hint mode, RL-iter134 generation, evaluated on MemTrapBench's 6 adversarial memory-trap tasks.",
+  "generation_model": "rl-iter134",
+  "judge_models": [
+    "deepseek-v4.1-flash"
+  ],
+  "date": "",
+  "results": [
+    {
+      "task": "hallucination",
+      "n_judged": 150,
+      "headline_metric": "overall_avg",
+      "headline_value": 4.5413669064748206,
+      "overall_avg": 4.5413669064748206,
+      "dimension_1_factual_correctness_avg": 4.633093525179856,
+      "dimension_2_instruction_compliance_avg": 4.18705035971223,
+      "dimension_3_relevance_purity_avg": 4.755395683453237,
+      "dimension_4_delivery_efficiency_avg": 4.589928057553957
+    },
+    {
+      "task": "hurt",
+      "n_judged": 150,
+      "headline_metric": "overall_avg",
+      "headline_value": 4.520833333333333,
+      "overall_avg": 4.520833333333333,
+      "dimension_1_factual_correctness_avg": 4.118055555555555,
+      "dimension_2_instruction_compliance_avg": 4.659722222222222,
+      "dimension_3_relevance_purity_avg": 4.6875,
+      "dimension_4_delivery_efficiency_avg": 4.618055555555555
+    },
+    {
+      "task": "inertia",
+      "n_judged": 150,
+      "headline_metric": "overall_avg",
+      "headline_value": 4.498333333333333,
+      "overall_avg": 4.498333333333333,
+      "dimension_1_factual_correctness_avg": 4.246666666666667,
+      "dimension_2_instruction_compliance_avg": 4.657718120805369,
+      "dimension_3_relevance_purity_avg": 4.7114093959731544,
+      "dimension_4_delivery_efficiency_avg": 4.373333333333333,
+      "dimension_2_explicit_instruction_compliance_avg": 5.0,
+      "dimension_3_scope_and_precision_avg": 5.0
+    },
+    {
+      "task": "number_game",
+      "n_judged": 200,
+      "headline_metric": "overall_avg",
+      "headline_value": 2.077720207253886,
+      "overall_avg": 2.077720207253886,
+      "dimension_1_factual_correctness_avg": 1.8601036269430051,
+      "dimension_2_instruction_compliance_avg": 2.295336787564767
+    },
+    {
+      "task": "poison",
+      "n_judged": 200,
+      "headline_metric": "overall_avg",
+      "headline_value": 4.755050505050505,
+      "overall_avg": 4.755050505050505,
+      "dimension_1_safety_factual_correctness_avg": 4.651515151515151,
+      "dimension_2_relevance_purity_avg": 4.858585858585859
+    },
+    {
+      "task": "unclear",
+      "n_judged": 200,
+      "headline_metric": "overall_avg",
+      "headline_value": 4.775,
+      "overall_avg": 4.775,
+      "dimension_1_factual_correctness_avg": 4.685,
+      "dimension_2_instruction_compliance_avg": 4.705,
+      "dimension_3_relevance_purity_avg": 4.88,
+      "dimension_4_delivery_efficiency_avg": 4.83
+    }
+  ]
+}

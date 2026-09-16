@@ -2,16 +2,19 @@
   "id": "baseline_no_memory_qwen3_8b",
   "label": "No Memory (Qwen3-8B)",
   "group": "main",
-  "description": "Literature baseline, Acc. column only, from the paper's main-results table.",
+  "description": "Qwen3-8B baseline, computed from qwen3_8b_paper_tasks eval outputs (real judged results, not paper-table transcription).",
   "generation_model": "qwen3-8b",
   "date": "",
   "results": [
     {
       "task": "objective_fact_judgment",
-      "arm": "baseline",
-      "n_judged": null,
+      "arm": "no_memory",
+      "n_judged": 300,
       "headline_metric": "objective_correctness_avg",
-      "headline_value": 0.49119999999999997
+      "headline_value": 0.54,
+      "preference_contamination_avg": 0.31666666666666665,
+      "preference_answer_selected_avg": 0.26666666666666666,
+      "suppress_pass_avg": 0.53
     }
   ]
 }

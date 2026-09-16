@@ -2,44 +2,55 @@
   "id": "baseline_memgpt_qwen3_8b",
   "label": "MemGPT (Qwen3-8B)",
   "group": "main",
-  "description": "Literature baseline, Acc. column only, from the paper's main-results table.",
+  "description": "Qwen3-8B baseline, computed from qwen3_8b_paper_tasks eval outputs (real judged results, not paper-table transcription).",
   "generation_model": "qwen3-8b",
   "date": "",
   "results": [
     {
       "task": "objective_fact_judgment",
-      "arm": "baseline",
-      "n_judged": null,
+      "arm": "with_memory",
+      "n_judged": 300,
       "headline_metric": "objective_correctness_avg",
-      "headline_value": 0.3
+      "headline_value": 0.3433333333333333,
+      "preference_contamination_avg": 0.65,
+      "preference_answer_selected_avg": 0.5966666666666667,
+      "suppress_pass_avg": 0.30333333333333334
     },
     {
       "task": "contextual_scope_control",
-      "arm": "baseline",
-      "n_judged": null,
+      "arm": "with_memory",
+      "n_judged": 300,
       "headline_metric": "accuracy_avg",
-      "headline_value": 0.4
+      "headline_value": 0.48333333333333334,
+      "incorrectly_used_preference_avg": 0.44666666666666666,
+      "scope_pass_avg": 0.48333333333333334
     },
     {
       "task": "memory_evidence_conflict",
-      "arm": "baseline",
-      "n_judged": null,
+      "arm": "with_memory",
+      "n_judged": 300,
       "headline_metric": "accuracy_avg",
-      "headline_value": 0.037200000000000004
+      "headline_value": 0.043333333333333335,
+      "misled_by_conflicting_memory_avg": 0.9566666666666667,
+      "evidence_pass_avg": 0.043333333333333335
     },
     {
       "task": "personalized_memory_use",
-      "arm": "baseline",
-      "n_judged": null,
+      "arm": "with_memory",
+      "n_judged": 300,
       "headline_metric": "answer_accuracy_avg",
-      "headline_value": 0.4633
+      "headline_value": 0.5166666666666667,
+      "preference_used_avg": 0.7766666666666666,
+      "memory_use_pass_avg": 0.5066666666666667
     },
     {
       "task": "valid_memory_selection",
-      "arm": "baseline",
-      "n_judged": null,
+      "arm": "with_memory",
+      "n_judged": 350,
       "headline_metric": "uses_latest_preference_avg",
-      "headline_value": 0.4114
+      "headline_value": 0.5628571428571428,
+      "outdated_preference_contamination_avg": 0.58,
+      "valid_selection_pass_avg": 0.4114285714285714
     }
   ]
 }

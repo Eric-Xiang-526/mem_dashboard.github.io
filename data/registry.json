@@ -9,6 +9,16 @@
       "id": "locomo-refined",
       "name": "LoCoMo (Refined)",
       "path": "data/locomo-refined/"
+    },
+    {
+      "id": "memtrap-rerankmem-hint",
+      "name": "MemTrapBench · RerankMem (Hint)",
+      "path": "data/memtrap-rerankmem-hint/"
+    },
+    {
+      "id": "persist-rerankmem-hint",
+      "name": "PersistBench · RerankMem (Hint)",
+      "path": "data/persist-rerankmem-hint/"
     }
   ]
 }

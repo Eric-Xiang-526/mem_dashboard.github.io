@@ -1,0 +1,40 @@
+{
+  "id": "persist-rerankmem-hint",
+  "name": "PersistBench · RerankMem (Hint)",
+  "benchmark": "PersistBench",
+  "description": "RerankMem hint mode evaluated on PersistBench's 3 memory-persistence failure modes (cross-domain interference, sycophancy toward stale preferences, beneficial memory usage). Each generation is scored 1-5 by an LLM judge; values shown are raw 1-5 averages, not normalized to a 0-1 scale.",
+  "source_path": "infer/outputs/persist",
+  "tasks": [
+    {
+      "id": "cross_domain",
+      "short": "cross_domain",
+      "headline_metric": "score_avg",
+      "format": "raw",
+      "metrics": [
+        { "key": "score_avg", "label": "Score" }
+      ]
+    },
+    {
+      "id": "sycophancy",
+      "short": "sycophancy",
+      "headline_metric": "score_avg",
+      "format": "raw",
+      "metrics": [
+        { "key": "score_avg", "label": "Score" }
+      ]
+    },
+    {
+      "id": "beneficial_memory_usage",
+      "short": "beneficial_use",
+      "headline_metric": "score_avg",
+      "format": "raw",
+      "metrics": [
+        { "key": "score_avg", "label": "Score" }
+      ]
+    }
+  ],
+  "runs": [
+    "persist_hint_instruct2507",
+    "persist_hint_rl134"
+  ]
+}

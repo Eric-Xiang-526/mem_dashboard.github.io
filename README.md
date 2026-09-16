@@ -24,6 +24,11 @@ scripts/ingest_locomo_scored_summary.py
 scripts/ingest_ablation_embedded_judge.py
                               ablation helper: generation/extract_results.jsonl with an
                               inline per-row "judge" dict -> run JSON
+scripts/ingest_memtrap_run.py current helper: memtrap_eval_<tag>/<task>/round1_judge_results_
+                              retrieved_memory_<task>_<judge_model>.json (1-5 dimension
+                              scores) -> run JSON
+scripts/ingest_persist_run.py current helper: checkpoint_<run>.json (entries dict with
+                              embedded 1-5 judge.score, split by failure_type) -> run JSON
 ```
 
 The dataset switcher is a tab bar (one tab per dataset, more will be added
@@ -87,9 +92,15 @@ it must equal whichever `results[i]` field `task.headline_metric` names.
   Other) a run's row lands in, and the section-title dot color (main = blue,
   ablation = orange, other = aqua/green). Keep to these three so the fixed
   color order stays meaningful as more datasets are added.
-- Metric values are treated as an absolute 0–100% scale (not normalized per
-  column), so the heatmap stays comparable as more runs/tasks are added
-  later.
+- A task can set `"format": "raw"` in `meta.json` to render its values as a
+  plain 2-decimal number instead of the default `"pct"` (×100 with a `%`
+  suffix) — use `raw` for benchmarks whose judge already scores on a fixed
+  scale that isn't [0,1], e.g. MemTrapBench/PersistBench's 1-5 LLM-judge
+  scores. Omitting `format` keeps the old `pct` behavior.
+- Cells show only the plain numeric value, no color coding — an earlier
+  sequential-blue heatmap (`seqColor()`) assumed every metric lived on a
+  [0,1] scale, which broke once `raw`-format 1-5 scores were added, so it
+  was removed outright rather than special-cased per format.
 - `judge_models` records which judge model(s) actually produced each run's
   numbers — a run can mix judges per task when only some tasks have been
   re-judged with the preferred model yet.
@@ -149,13 +160,15 @@ the preferred judge hasn't scored that task yet. Then add `<run_id>` to
   with what's reported from the run.
 - `n_judged` varies by task for one structural reason: `valid_memory_selection`
   has 350 samples by design vs. 300 for the other four tasks.
-- Nine Qwen3-8B literature baselines added (`main` group), Acc.-only,
-  transcribed from the paper's main-results table via
-  `scripts/seed_qwen3_8b_baselines.py`: No Memory, Full Dialog, NaiveRAG,
-  Mem0, A-Mem, LightMem, MemGPT, MemoryBank, SuperMemory. `No Memory` only
-  reports Objective Fact Judgment (the only task it's evaluated on in the
-  paper); other tasks show as `—`. These have no `n_judged` (not resampled
-  here, just literature numbers).
+- Nine Qwen3-8B baselines added (`main` group): No Memory, Full Dialog,
+  NaiveRAG, Mem0, A-Mem, LightMem, MemGPT, MemoryBank, SuperMemory.
+  Originally hand-transcribed Acc.-only from the paper's main-results table
+  via `scripts/seed_qwen3_8b_baselines.py`; superseded by real judged
+  results (all metrics, not just Acc., plus `n_judged`/`n_scored` counts)
+  ingested from `qwen3_8b_paper_tasks_extracted/qwen3_8b_paper_tasks/` via
+  `scripts/ingest_qwen3_8b_paper_tasks.py`. `No Memory` only reports
+  Objective Fact Judgment (the only task it's evaluated on); other tasks
+  show as `—`.
 - The three old `rerank_online_hint*` runs (built from the now-deprecated
   `outputs/_legacy/` source) were removed.
 - Each task in `memsyco-rerankmem-hint`'s `meta.json` now lists a `metrics`
@@ -166,9 +179,8 @@ the preferred judge hasn't scored that task yet. Then add `<run_id>` to
   `preference_answer_selected_avg`), "Correct Mem Use" for personalized use
   (`preference_used_avg`), "Outdated Mem" for valid selection
   (`outdated_preference_contamination_avg`). Only the four real
-  RerankMem-family runs have this second field populated — the Qwen3-8B
-  literature baselines were only transcribed Acc.-only, so their second
-  column shows `—`.
+  RerankMem-family runs and the Qwen3-8B baselines (now real judged
+  results) have this second field populated.
 - Dataset: `locomo-refined` added, sourced from
   `infer/handoffs/locomo-rerankmem-hint/outputs`, via
   `scripts/ingest_locomo_scored_summary.py` (reads a flat
@@ -199,3 +211,45 @@ the preferred judge hasn't scored that task yet. Then add `<run_id>` to
   so results line up with the four main runs). Judge model
   (`deepseek-v4.1-flash`) isn't recorded per-row in this layout and was
   confirmed manually rather than read from the data.
+- A fourth ablation-group row, `ablation_baseline_hint_rl134`, duplicates
+  `local_hint_rl134_live_traj`'s results (full, unablated RerankMem) so the
+  three ablations above have a reference point inside the same section.
+  Row order within a section is always sorted by descending Avg, not by
+  `meta.json`'s `runs` list order, so this row does not literally render
+  first — it lands wherever its score ranks (currently 2nd of the four
+  ablation-group rows).
+- Three more LoCoMo ablation runs added to `locomo-refined` (`ablation`
+  group, its first-ever ablation rows), same `ablation_full_both` /
+  `ablation_full_decomp_only` / `ablation_full_rerank_only` split as the
+  MemSyco ablations above, all n=1382, ingested with the existing
+  `ingest_locomo_scored_summary.py --group ablation`: llm_score 0.6230 /
+  0.6288 / 0.5507 respectively.
+- Two new datasets added: `memtrap-rerankmem-hint` (MemTrapBench: 6
+  adversarial memory-trap tasks — hallucination, hurt, inertia,
+  number_game, poison, unclear) and `persist-rerankmem-hint` (PersistBench:
+  3 memory-persistence failure modes — cross_domain, sycophancy,
+  beneficial_memory_usage). Both use `"format": "raw"` on every task —
+  their LLM judge scores 1-5, not a [0,1] pass rate, so values render as
+  plain 2-decimal numbers rather than a percentage.
+  - MemTrapBench: judged per-task by 1-5 scores across 2-4 dimensions
+    (`dimension_1_factual_correctness`, `dimension_2_instruction_compliance`,
+    `dimension_3_relevance_purity`, `dimension_4_delivery_efficiency`; only
+    2 dims for `number_game`, and `poison` uses its own safety-specific
+    dimension names). "Overall" is the mean across all valid per-row
+    dimension scores; a handful of rows per task fail to parse
+    (`{"parse_error": true, "raw": "..."}` instead of real dimension
+    scores) and are excluded from the average but still counted in
+    `n_judged`. Only `deepseek-v4.1-flash` judged results are used — a
+    second judge model, `qwen3-30b-a3b-instruct-2507`, mostly failed
+    (`skipped`/`target_error` on most rows for several tasks) and is not
+    ingested. Two runs ingested, both `main`: `memtrap_hint_instruct2507`
+    and `memtrap_hint_rl134`. Ingested with `scripts/ingest_memtrap_run.py`.
+  - PersistBench: `checkpoint_<run>.json`'s `entries` is a dict keyed by
+    hash id, not a list; each entry carries one `failure_type` and a
+    `results.<model>.generations[0].judge.score` (1-5 int). Each
+    `failure_type` is treated as its own dashboard task/column (plus the
+    usual Avg column across all three). Judge model is read from
+    `metadata.judge_model` in the checkpoint file itself
+    (`deepseek-v4.1-flash` for both ingested runs) rather than assumed.
+    Two runs ingested, both `main`: `persist_hint_instruct2507` and
+    `persist_hint_rl134`. Ingested with `scripts/ingest_persist_run.py`.

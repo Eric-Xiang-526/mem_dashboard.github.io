@@ -20,7 +20,7 @@
       "headline_metric": "uses_latest_preference_avg",
       "metrics": [
         { "key": "uses_latest_preference_avg", "label": "Acc." },
-        { "key": "outdated_preference_contamination_avg", "label": "Outdated Mem" }
+        { "key": "outdated_preference_contamination_avg", "label": "Outdated Mem", "lowerIsBetter": true }
       ]
     },
     {
@@ -29,7 +29,7 @@
       "headline_metric": "accuracy_avg",
       "metrics": [
         { "key": "accuracy_avg", "label": "Acc." },
-        { "key": "misled_by_conflicting_memory_avg", "label": "Syco.Rate" }
+        { "key": "misled_by_conflicting_memory_avg", "label": "Syco.Rate", "lowerIsBetter": true }
       ]
     },
     {
@@ -38,7 +38,7 @@
       "headline_metric": "accuracy_avg",
       "metrics": [
         { "key": "accuracy_avg", "label": "Acc." },
-        { "key": "incorrectly_used_preference_avg", "label": "Syco.Rate" }
+        { "key": "incorrectly_used_preference_avg", "label": "Syco.Rate", "lowerIsBetter": true }
       ]
     },
     {
@@ -47,7 +47,7 @@
       "headline_metric": "objective_correctness_avg",
       "metrics": [
         { "key": "objective_correctness_avg", "label": "Acc." },
-        { "key": "preference_answer_selected_avg", "label": "Syco.Rate" }
+        { "key": "preference_answer_selected_avg", "label": "Syco.Rate", "lowerIsBetter": true }
       ]
     }
   ],

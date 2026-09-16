@@ -62,6 +62,10 @@ function taskMetrics(task) {
   return task.metrics && task.metrics.length ? task.metrics : [{ key: task.headline_metric, label: "Value" }];
 }
 
+function taskFormat(task) {
+  return task.format === "raw" ? "raw" : "pct";
+}
+
 function taskMetricValue(run, task, metricKey) {
   const r = run.results.find((x) => x.task === task.id);
   if (!r) return null;
@@ -79,13 +83,29 @@ function renderSections() {
   els.sections.innerHTML = GROUPS.map((g) => sectionHtml(g)).join("");
 }
 
+function columnRanks(runs) {
+  // For each task+metric column, find the best and second-best value among
+  // this section's runs so the table can call them out (top = red, 2nd = orange).
+  // Higher is better by default; a metric can flip this with "lowerIsBetter": true.
+  const ranks = new Map();
+  state.meta.tasks.forEach((t) => {
+    taskMetrics(t).forEach((m) => {
+      const vals = [...new Set(runs.map((r) => taskMetricValue(r, t, m.key)).filter((v) => typeof v === "number"))];
+      vals.sort((a, b) => (m.lowerIsBetter ? a - b : b - a));
+      ranks.set(`${t.id}::${m.key}`, { best: vals[0], second: vals[1] });
+    });
+  });
+  return ranks;
+}
+
 function sectionHtml(group) {
   const runs = state.runs.filter((r) => r.group === group);
   const sorted = [...runs].sort((a, b) => (runMean(b) ?? -1) - (runMean(a) ?? -1));
+  const ranks = columnRanks(sorted);
 
   const totalMetricCols = state.meta.tasks.reduce((n, t) => n + taskMetrics(t).length, 0);
   const bodyHtml = sorted.length
-    ? sorted.map((run) => rowHtml(run)).join("")
+    ? sorted.map((run) => rowHtml(run, ranks)).join("")
     : `<tr><td colspan="${totalMetricCols + 3}"><div class="empty-state">No runs in this group yet.</div></td></tr>`;
 
   return `
@@ -114,20 +134,22 @@ function sectionHtml(group) {
   `;
 }
 
-function rowHtml(run) {
+function rowHtml(run, ranks) {
   const cells = state.meta.tasks
     .map((t) =>
       taskMetrics(t)
         .map((m) => {
           const v = taskMetricValue(run, t, m.key);
           if (v === null || v === undefined) return `<td class="metric-cell">—</td>`;
-          const { bg, fg } = seqColor(v);
-          return `<td class="metric-cell" style="background:${bg};color:${fg}">${pct(v)}</td>`;
+          const rank = ranks.get(`${t.id}::${m.key}`);
+          const cls = rank && v === rank.best ? " is-best" : rank && v === rank.second ? " is-second" : "";
+          return `<td class="metric-cell${cls}">${formatValue(v, taskFormat(t))}</td>`;
         })
         .join("")
     )
     .join("");
   const m = runMean(run);
+  const meanFormat = state.meta.tasks.length ? taskFormat(state.meta.tasks[0]) : "pct";
   const n = run.results[0] ? run.results[0].n_judged : null;
   const sub = [run.date ? run.date.slice(0, 10) : "", n === null || n === undefined ? "" : `n=${n}`]
     .filter(Boolean)
@@ -141,22 +163,14 @@ function rowHtml(run) {
         </div>
       </td>
       ${cells}
-      <td class="mean-cell">${m === null ? "—" : pct(m)}</td>
+      <td class="mean-cell">${m === null ? "—" : formatValue(m, meanFormat)}</td>
       <td class="notes-cell">${escapeHtml(run.description || "")}</td>
     </tr>
   `;
 }
 
-function seqColor(value) {
-  const idx = Math.max(0, Math.min(6, Math.floor(value * 7)));
-  const isDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const bg = `var(--seq-${idx})`;
-  const fg = isDark ? (idx <= 3 ? "#ffffff" : "#0b0b0b") : (idx >= 3 ? "#ffffff" : "#0b0b0b");
-  return { bg, fg };
-}
-
-function pct(v) {
-  return `${(v * 100).toFixed(1)}%`;
+function formatValue(v, format) {
+  return format === "raw" ? v.toFixed(2) : `${(v * 100).toFixed(1)}%`;
 }
 
 function escapeHtml(str) {

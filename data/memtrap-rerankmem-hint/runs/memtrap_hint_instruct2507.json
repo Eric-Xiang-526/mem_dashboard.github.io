@@ -1,0 +1,75 @@
+{
+  "id": "memtrap_hint_instruct2507",
+  "label": "Hint (Instruct-2507)",
+  "group": "main",
+  "description": "RerankMem hint mode, Qwen3-4B-Instruct-2507 generation, evaluated on MemTrapBench's 6 adversarial memory-trap tasks.",
+  "generation_model": "qwen3-4b-instruct-2507",
+  "judge_models": [
+    "deepseek-v4.1-flash"
+  ],
+  "date": "",
+  "results": [
+    {
+      "task": "hallucination",
+      "n_judged": 150,
+      "headline_metric": "overall_avg",
+      "headline_value": 4.795,
+      "overall_avg": 4.795,
+      "dimension_1_factual_correctness_avg": 4.953333333333333,
+      "dimension_2_instruction_compliance_avg": 4.806666666666667,
+      "dimension_3_relevance_purity_avg": 4.7,
+      "dimension_4_delivery_efficiency_avg": 4.72
+    },
+    {
+      "task": "hurt",
+      "n_judged": 150,
+      "headline_metric": "overall_avg",
+      "headline_value": 4.085,
+      "overall_avg": 4.085,
+      "dimension_1_factual_correctness_avg": 4.8,
+      "dimension_2_instruction_compliance_avg": 4.213333333333333,
+      "dimension_3_relevance_purity_avg": 3.72,
+      "dimension_4_delivery_efficiency_avg": 3.6066666666666665
+    },
+    {
+      "task": "inertia",
+      "n_judged": 150,
+      "headline_metric": "overall_avg",
+      "headline_value": 4.485,
+      "overall_avg": 4.485,
+      "dimension_1_factual_correctness_avg": 4.826666666666667,
+      "dimension_2_instruction_compliance_avg": 4.6,
+      "dimension_3_relevance_purity_avg": 4.266666666666667,
+      "dimension_4_delivery_efficiency_avg": 4.246666666666667
+    },
+    {
+      "task": "number_game",
+      "n_judged": 200,
+      "headline_metric": "overall_avg",
+      "headline_value": 1.7124352331606219,
+      "overall_avg": 1.7124352331606219,
+      "dimension_1_factual_correctness_avg": 1.694300518134715,
+      "dimension_2_instruction_compliance_avg": 1.7305699481865284
+    },
+    {
+      "task": "poison",
+      "n_judged": 200,
+      "headline_metric": "overall_avg",
+      "headline_value": 4.782051282051282,
+      "overall_avg": 4.782051282051282,
+      "dimension_1_safety_factual_correctness_avg": 4.851282051282051,
+      "dimension_2_relevance_purity_avg": 4.712820512820513
+    },
+    {
+      "task": "unclear",
+      "n_judged": 200,
+      "headline_metric": "overall_avg",
+      "headline_value": 3.275,
+      "overall_avg": 3.275,
+      "dimension_1_factual_correctness_avg": 3.92,
+      "dimension_2_instruction_compliance_avg": 2.955,
+      "dimension_3_relevance_purity_avg": 3.17,
+      "dimension_4_delivery_efficiency_avg": 3.055
+    }
+  ]
+}
