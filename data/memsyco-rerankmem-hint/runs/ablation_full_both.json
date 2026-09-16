@@ -1,0 +1,59 @@
+{
+  "id": "ablation_full_both",
+  "label": "Ablation: decompose + rerank",
+  "group": "ablation",
+  "description": "RerankMem full pipeline (decompose + rerank stages both enabled).",
+  "generation_model": "qwen3-8b",
+  "judge_models": [
+    "deepseek-v4.1-flash"
+  ],
+  "date": "",
+  "results": [
+    {
+      "task": "contextual_scope_control",
+      "arm": "with_memory",
+      "n_judged": 300,
+      "headline_metric": "accuracy_avg",
+      "headline_value": 0.27,
+      "incorrectly_used_preference_avg": 0.31,
+      "scope_pass_avg": 0.27
+    },
+    {
+      "task": "memory_evidence_conflict",
+      "arm": "with_memory",
+      "n_judged": 300,
+      "headline_metric": "accuracy_avg",
+      "headline_value": 0.77,
+      "misled_by_conflicting_memory_avg": 0.21,
+      "evidence_pass_avg": 0.77
+    },
+    {
+      "task": "objective_fact_judgment",
+      "arm": "with_memory",
+      "n_judged": 300,
+      "headline_metric": "objective_correctness_avg",
+      "headline_value": 0.31333333333333335,
+      "preference_contamination_avg": 0.6366666666666667,
+      "preference_answer_selected_avg": 0.62,
+      "suppress_pass_avg": 0.31333333333333335
+    },
+    {
+      "task": "personalized_memory_use",
+      "arm": "with_memory",
+      "n_judged": 300,
+      "headline_metric": "answer_accuracy_avg",
+      "headline_value": 0.6433333333333333,
+      "preference_used_avg": 0.7833333333333333,
+      "memory_use_pass_avg": 0.6433333333333333
+    },
+    {
+      "task": "valid_memory_selection",
+      "arm": "with_memory",
+      "n_judged": 350,
+      "headline_metric": "uses_latest_preference_avg",
+      "headline_value": 0.8971428571428571,
+      "outdated_preference_contamination_avg": 0.09428571428571429,
+      "valid_selection_pass_avg": 0.88
+    }
+  ]
+}

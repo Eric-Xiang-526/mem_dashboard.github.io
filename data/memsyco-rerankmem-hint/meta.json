@@ -64,6 +64,9 @@
     "baseline_lightmem_qwen3_8b",
     "baseline_memgpt_qwen3_8b",
     "baseline_memorybank_qwen3_8b",
-    "baseline_supermemory_qwen3_8b"
+    "baseline_supermemory_qwen3_8b",
+    "ablation_full_both",
+    "ablation_full_decomp_only",
+    "ablation_full_rerank_only"
   ]
 }

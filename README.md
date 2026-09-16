@@ -21,6 +21,9 @@ scripts/ingest_outputs_run.py current helper: outputs/<gen_run>/<judge_model>/<t
 scripts/ingest_locomo_scored_summary.py
                               locomo-refined helper: predictions_..._scored_summary.json
                               -> run JSON (single "locomo_qa" task)
+scripts/ingest_ablation_embedded_judge.py
+                              ablation helper: generation/extract_results.jsonl with an
+                              inline per-row "judge" dict -> run JSON
 ```
 
 The dataset switcher is a tab bar (one tab per dataset, more will be added
@@ -183,3 +186,16 @@ the preferred judge hasn't scored that task yet. Then add `<run_id>` to
 - Dataset and run descriptions are placeholders (`TODO`) pending the
   write-up, except locomo-refined's dataset description and the two ingested
   run descriptions, which are filled in.
+- Three RerankMem ablations added to `memsyco-rerankmem-hint` (`ablation`
+  group): `ablation_full_both` (decompose + rerank both enabled),
+  `ablation_full_decomp_only` (rerank stage removed), and
+  `ablation_full_rerank_only` (decompose stage removed). These runs judge
+  inline — each row of `generation/extract_results.jsonl` already carries
+  its own `judge` dict (same field names as `judged_<task>.jsonl`, e.g.
+  `accuracy`, `incorrectly_used_preference`, `scope_pass`) rather than
+  writing separate `<judge_model>/<timestamp>/judged_<task>.jsonl` files,
+  so they're ingested with `scripts/ingest_ablation_embedded_judge.py`
+  instead of `ingest_outputs_run.py` (same `TASK_JUDGE_FIELDS` mapping,
+  so results line up with the four main runs). Judge model
+  (`deepseek-v4.1-flash`) isn't recorded per-row in this layout and was
+  confirmed manually rather than read from the data.
