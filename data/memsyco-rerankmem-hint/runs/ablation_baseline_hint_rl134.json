@@ -1,0 +1,59 @@
+{
+  "id": "ablation_baseline_hint_rl134",
+  "label": "Baseline: Hint RL134 (full RerankMem)",
+  "group": "ablation",
+  "description": "Reference row: full RerankMem (Hint, RL134) result, same as the main-section run, shown here for comparison against the ablations.",
+  "generation_model": "qwen3-8b",
+  "judge_models": [
+    "deepseek-v4.1-flash"
+  ],
+  "date": "",
+  "results": [
+    {
+      "task": "contextual_scope_control",
+      "arm": "with_memory",
+      "n_judged": 300,
+      "headline_metric": "accuracy_avg",
+      "headline_value": 0.3233333333333333,
+      "incorrectly_used_preference_avg": 0.26666666666666666,
+      "scope_pass_avg": 0.3233333333333333
+    },
+    {
+      "task": "memory_evidence_conflict",
+      "arm": "with_memory",
+      "n_judged": 300,
+      "headline_metric": "accuracy_avg",
+      "headline_value": 0.92,
+      "misled_by_conflicting_memory_avg": 0.08,
+      "evidence_pass_avg": 0.92
+    },
+    {
+      "task": "objective_fact_judgment",
+      "arm": "with_memory",
+      "n_judged": 300,
+      "headline_metric": "objective_correctness_avg",
+      "headline_value": 0.3933333333333333,
+      "preference_contamination_avg": 0.5566666666666666,
+      "preference_answer_selected_avg": 0.5433333333333333,
+      "suppress_pass_avg": 0.3933333333333333
+    },
+    {
+      "task": "personalized_memory_use",
+      "arm": "with_memory",
+      "n_judged": 300,
+      "headline_metric": "answer_accuracy_avg",
+      "headline_value": 0.55,
+      "preference_used_avg": 0.7166666666666667,
+      "memory_use_pass_avg": 0.5333333333333333
+    },
+    {
+      "task": "valid_memory_selection",
+      "arm": "with_memory",
+      "n_judged": 350,
+      "headline_metric": "uses_latest_preference_avg",
+      "headline_value": 0.5714285714285714,
+      "outdated_preference_contamination_avg": 0.39255014326647564,
+      "valid_selection_pass_avg": 0.5558739255014327
+    }
+  ]
+}
