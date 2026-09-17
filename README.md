@@ -29,6 +29,9 @@ scripts/ingest_memtrap_run.py current helper: memtrap_eval_<tag>/<task>/round1_j
                               scores) -> run JSON
 scripts/ingest_persist_run.py current helper: checkpoint_<run>.json (entries dict with
                               embedded 1-5 judge.score, split by failure_type) -> run JSON
+scripts/ingest_memsyco_flat_judged.py current helper: flat judged_<shortname>_<run>.jsonl
+                              files (no <judge_model>/<timestamp>/ nesting, abbreviated
+                              task-name prefixes) -> run JSON
 ```
 
 The dataset switcher is a tab bar (one tab per dataset, more will be added
@@ -97,10 +100,20 @@ it must equal whichever `results[i]` field `task.headline_metric` names.
   suffix) — use `raw` for benchmarks whose judge already scores on a fixed
   scale that isn't [0,1], e.g. MemTrapBench/PersistBench's 1-5 LLM-judge
   scores. Omitting `format` keeps the old `pct` behavior.
-- Cells show only the plain numeric value, no color coding — an earlier
-  sequential-blue heatmap (`seqColor()`) assumed every metric lived on a
-  [0,1] scale, which broke once `raw`-format 1-5 scores were added, so it
-  was removed outright rather than special-cased per format.
+- An earlier sequential-blue heatmap (`seqColor()`) assumed every metric
+  lived on a [0,1] scale, which broke once `raw`-format 1-5 scores were
+  added, so it was removed outright rather than special-cased per format.
+  Cells are otherwise plain — no background fill, no cell borders — but the
+  best and second-best distinct value in each metric column (scoped to the
+  section it's rendered in: Main / Ablation / Other are ranked separately,
+  never against each other) get called out: best in red + bold + underline,
+  second-best in orange. This is computed client-side by `columnRanks()` in
+  `app.js`, not stored in the data.
+- A metric is "higher is better" by default (so the max value in a column is
+  "best"). Set `"lowerIsBetter": true` on a `metrics[]` entry in `meta.json`
+  to flip this so the *minimum* value counts as best instead — used for
+  metrics that are actually failure rates despite living in the same table,
+  e.g. `memsyco-rerankmem-hint`'s "Syco.Rate" and "Outdated Mem" columns.
 - `judge_models` records which judge model(s) actually produced each run's
   numbers — a run can mix judges per task when only some tasks have been
   re-judged with the preferred model yet.
@@ -253,3 +266,30 @@ the preferred judge hasn't scored that task yet. Then add `<run_id>` to
     (`deepseek-v4.1-flash` for both ingested runs) rather than assumed.
     Two runs ingested, both `main`: `persist_hint_instruct2507` and
     `persist_hint_rl134`. Ingested with `scripts/ingest_persist_run.py`.
+- Two new datasets added for the `gpt-5.6-luna` base model, sourced from
+  `infer/outputs/luna/`: `memsyco-luna-hint` and `locomo-luna-hint`. Kept as
+  separate tabs rather than folded into the existing
+  `memsyco-rerankmem-hint`/`locomo-refined` tabs' Other group, since
+  gpt-5.6-luna is a different base model than the qwen3-8b/qwen3-4b-
+  instruct-2507/rl-iter134 family those tables compare — mixing them into
+  one ranked table would be misleading.
+  - `memsyco-luna-hint`: same 5 tasks/metrics as `memsyco-rerankmem-hint`.
+    Source data (`infer/outputs/luna/memsyco/`) is laid out as flat
+    `judged_<shortname>_<run>.jsonl` files (no `<judge_model>/<timestamp>/`
+    nesting) using abbreviated task prefixes (`scope`, `evid`, `obj`,
+    `pers`, `valid`) — a layout distinct from both `ingest_outputs_run.py`
+    and `ingest_ablation_embedded_judge.py`, so ingested with the new
+    `scripts/ingest_memsyco_flat_judged.py` instead (same
+    `TASK_JUDGE_FIELDS` mapping, so results are directly comparable to the
+    main pipeline's numbers). Base model (`gpt-5.6-luna`) and judge model
+    (`deepseek-v4.1-flash`) are both read from the data, not assumed. Two
+    runs ingested, both `main`: `memsyco_luna_hint_instruct2507` and
+    `memsyco_luna_hint_rl134_classic`.
+  - `locomo-luna-hint`: same single `locomo_qa` task as `locomo-refined`.
+    Ingested with `scripts/ingest_locomo_scored_summary.py --dataset
+    locomo-luna-hint` (the script gained a `--dataset` flag this round;
+    previously it always wrote to the hardcoded `locomo-refined`). Only
+    `locomo_luna_hint_instruct2507` (llm_score 0.6787, n=1382) is ingested
+    so far — the rl134_classic variant has predictions but no
+    `_scored_summary.json` yet, same situation as `locomo-refined`'s
+    still-unscored `rl134_classic` run. Add it once scoring finishes.

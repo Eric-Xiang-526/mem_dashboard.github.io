@@ -1,0 +1,58 @@
+{
+  "id": "memsyco-luna-hint",
+  "name": "MemSyco · Luna (Hint)",
+  "benchmark": "MemSyco-Bench",
+  "description": "RerankMem hint mode evaluated with gpt-5.6-luna as the base generation model, on MemSyco-Bench's 5 sycophancy/memory-conflict tasks.",
+  "source_path": "infer/outputs/luna/memsyco",
+  "tasks": [
+    {
+      "id": "personalized_memory_use",
+      "short": "pers_mem_use",
+      "headline_metric": "answer_accuracy_avg",
+      "metrics": [
+        { "key": "answer_accuracy_avg", "label": "Acc." },
+        { "key": "preference_used_avg", "label": "Correct Mem Use" }
+      ]
+    },
+    {
+      "id": "valid_memory_selection",
+      "short": "valid_sel",
+      "headline_metric": "uses_latest_preference_avg",
+      "metrics": [
+        { "key": "uses_latest_preference_avg", "label": "Acc." },
+        { "key": "outdated_preference_contamination_avg", "label": "Outdated Mem", "lowerIsBetter": true }
+      ]
+    },
+    {
+      "id": "memory_evidence_conflict",
+      "short": "evid_conflict",
+      "headline_metric": "accuracy_avg",
+      "metrics": [
+        { "key": "accuracy_avg", "label": "Acc." },
+        { "key": "misled_by_conflicting_memory_avg", "label": "Syco.Rate", "lowerIsBetter": true }
+      ]
+    },
+    {
+      "id": "contextual_scope_control",
+      "short": "scope_ctrl",
+      "headline_metric": "accuracy_avg",
+      "metrics": [
+        { "key": "accuracy_avg", "label": "Acc." },
+        { "key": "incorrectly_used_preference_avg", "label": "Syco.Rate", "lowerIsBetter": true }
+      ]
+    },
+    {
+      "id": "objective_fact_judgment",
+      "short": "obj_fact",
+      "headline_metric": "objective_correctness_avg",
+      "metrics": [
+        { "key": "objective_correctness_avg", "label": "Acc." },
+        { "key": "preference_answer_selected_avg", "label": "Syco.Rate", "lowerIsBetter": true }
+      ]
+    }
+  ],
+  "runs": [
+    "memsyco_luna_hint_instruct2507",
+    "memsyco_luna_hint_rl134_classic"
+  ]
+}

@@ -19,6 +19,16 @@
       "id": "persist-rerankmem-hint",
       "name": "PersistBench · RerankMem (Hint)",
       "path": "data/persist-rerankmem-hint/"
+    },
+    {
+      "id": "memsyco-luna-hint",
+      "name": "MemSyco · Luna (Hint)",
+      "path": "data/memsyco-luna-hint/"
+    },
+    {
+      "id": "locomo-luna-hint",
+      "name": "LoCoMo · Luna (Hint)",
+      "path": "data/locomo-luna-hint/"
     }
   ]
 }

@@ -3,7 +3,7 @@
 Convert one `<predictions>_scored_summary.json` file (the layout produced by
 the locomo-refined eval pipeline: predictions_<run>_scored_summary.json with
 `overall`, `by_category`, `metadata.llm_judge`) into a dashboard run JSON
-under data/locomo-refined/runs/<run_id>.json.
+under data/<dataset>/runs/<run_id>.json (defaults to locomo-refined).
 
 There's a single flat task ("locomo_qa") with `llm_score` as the headline
 (primary) metric and `f1_score` / `bleu_score` kept as extra fields, plus a
@@ -24,7 +24,6 @@ import json
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-DATASET = "locomo-refined"
 
 METRIC_FIELDS = ["llm_score", "f1_score", "bleu_score"]
 
@@ -32,6 +31,7 @@ METRIC_FIELDS = ["llm_score", "f1_score", "bleu_score"]
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--summary-path", required=True, help="Path to a *_scored_summary.json file")
+    ap.add_argument("--dataset", default="locomo-refined")
     ap.add_argument("--run-id", required=True)
     ap.add_argument("--label", required=True)
     ap.add_argument("--group", default="other", choices=["main", "ablation", "other"])
@@ -76,12 +76,12 @@ def main():
         "results": [result],
     }
 
-    out_dir = REPO_ROOT / "data" / DATASET / "runs"
+    out_dir = REPO_ROOT / "data" / args.dataset / "runs"
     out_dir.mkdir(parents=True, exist_ok=True)
     out_path = out_dir / f"{args.run_id}.json"
     out_path.write_text(json.dumps(out, indent=2) + "\n")
     print(f"wrote {out_path.relative_to(REPO_ROOT)} (n={overall['count']}, {primary_metric}={overall[primary_metric]:.4f})")
-    print(f"remember to add \"{args.run_id}\" to data/{DATASET}/meta.json -> runs")
+    print(f"remember to add \"{args.run_id}\" to data/{args.dataset}/meta.json -> runs")
 
 
 if __name__ == "__main__":

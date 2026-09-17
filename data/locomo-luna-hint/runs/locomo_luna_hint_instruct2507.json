@@ -1,0 +1,39 @@
+{
+  "id": "locomo_luna_hint_instruct2507",
+  "label": "Hint (Instruct-2507)",
+  "group": "main",
+  "description": "RerankMem hint mode, gpt-5.6-luna generation over Qwen3-4B-Instruct-2507's context, evaluated on the refined LoCoMo QA set.",
+  "generation_model": "gpt-5.6-luna",
+  "judge_models": [
+    "refined"
+  ],
+  "date": "",
+  "results": [
+    {
+      "task": "locomo_qa",
+      "arm": "with_memory",
+      "n_judged": 1382,
+      "headline_metric": "llm_score_avg",
+      "headline_value": 0.678726483357453,
+      "llm_score_avg": 0.678726483357453,
+      "f1_score_avg": 0.5287564135073143,
+      "bleu_score_avg": 0.456159346073549,
+      "cat1_llm_score_avg": 0.45539906103286387,
+      "cat1_f1_score_avg": 0.3808224591980496,
+      "cat1_bleu_score_avg": 0.2999929865149445,
+      "cat1_n": 213,
+      "cat2_llm_score_avg": 0.7290969899665551,
+      "cat2_f1_score_avg": 0.658637564657965,
+      "cat2_bleu_score_avg": 0.5588957466679454,
+      "cat2_n": 299,
+      "cat3_llm_score_avg": 0.6764705882352942,
+      "cat3_f1_score_avg": 0.4473109572703833,
+      "cat3_bleu_score_avg": 0.38859787433174636,
+      "cat3_n": 68,
+      "cat4_llm_score_avg": 0.7194513715710723,
+      "cat4_f1_score_avg": 0.5265291804623518,
+      "cat4_bleu_score_avg": 0.46506137959811356,
+      "cat4_n": 802
+    }
+  ]
+}

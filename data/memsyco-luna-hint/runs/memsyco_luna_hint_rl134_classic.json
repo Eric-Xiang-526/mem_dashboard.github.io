@@ -1,0 +1,64 @@
+{
+  "id": "memsyco_luna_hint_rl134_classic",
+  "label": "Hint (RL134)",
+  "group": "main",
+  "description": "RerankMem hint mode, gpt-5.6-luna generation over RL-iter134's context, evaluated on MemSyco-Bench's 5 tasks.",
+  "generation_model": "gpt-5.6-luna",
+  "judge_models": [
+    "deepseek-v4.1-flash"
+  ],
+  "date": "",
+  "results": [
+    {
+      "task": "contextual_scope_control",
+      "arm": "with_memory",
+      "n_judged": 294,
+      "headline_metric": "accuracy_avg",
+      "headline_value": 0.4931972789115646,
+      "judge_model": "deepseek-v4.1-flash",
+      "incorrectly_used_preference_avg": 0.1870748299319728,
+      "scope_pass_avg": 0.4931972789115646
+    },
+    {
+      "task": "memory_evidence_conflict",
+      "arm": "with_memory",
+      "n_judged": 292,
+      "headline_metric": "accuracy_avg",
+      "headline_value": 0.8493150684931506,
+      "judge_model": "deepseek-v4.1-flash",
+      "misled_by_conflicting_memory_avg": 0.10616438356164383,
+      "evidence_pass_avg": 0.8493150684931506
+    },
+    {
+      "task": "objective_fact_judgment",
+      "arm": "with_memory",
+      "n_judged": 291,
+      "headline_metric": "objective_correctness_avg",
+      "headline_value": 0.43986254295532645,
+      "judge_model": "deepseek-v4.1-flash",
+      "preference_contamination_avg": 0.47766323024054985,
+      "preference_answer_selected_avg": 0.4742268041237113,
+      "suppress_pass_avg": 0.43986254295532645
+    },
+    {
+      "task": "personalized_memory_use",
+      "arm": "with_memory",
+      "n_judged": 286,
+      "headline_metric": "answer_accuracy_avg",
+      "headline_value": 0.5699300699300699,
+      "judge_model": "deepseek-v4.1-flash",
+      "preference_used_avg": 0.7517482517482518,
+      "memory_use_pass_avg": 0.5629370629370629
+    },
+    {
+      "task": "valid_memory_selection",
+      "arm": "with_memory",
+      "n_judged": 338,
+      "headline_metric": "uses_latest_preference_avg",
+      "headline_value": 0.8224852071005917,
+      "judge_model": "deepseek-v4.1-flash",
+      "outdated_preference_contamination_avg": 0.08579881656804733,
+      "valid_selection_pass_avg": 0.8165680473372781
+    }
+  ]
+}
