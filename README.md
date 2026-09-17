@@ -32,6 +32,9 @@ scripts/ingest_persist_run.py current helper: checkpoint_<run>.json (entries dic
 scripts/ingest_memsyco_flat_judged.py current helper: flat judged_<shortname>_<run>.jsonl
                               files (no <judge_model>/<timestamp>/ nesting, abbreviated
                               task-name prefixes) -> run JSON
+scripts/ingest_memtrap_ablation_summary.py current helper: predictions_ablation_<variant>_
+                              scored_summary.json (already-aggregated by_dataset.<task>.
+                              dimensions.<dim>.mean_raw_1_5) -> run JSON
 ```
 
 The dataset switcher is a tab bar (one tab per dataset, more will be added
@@ -293,3 +296,19 @@ the preferred judge hasn't scored that task yet. Then add `<run_id>` to
     so far — the rl134_classic variant has predictions but no
     `_scored_summary.json` yet, same situation as `locomo-refined`'s
     still-unscored `rl134_classic` run. Add it once scoring finishes.
+- Three RerankMem ablations added to `memtrap-rerankmem-hint` (`ablation`
+  group): `memtrap_ablation_full_both` (decompose + rerank both enabled),
+  `memtrap_ablation_full_decomp_only` (rerank stage removed), and
+  `memtrap_ablation_full_rerank_only` (decompose stage removed) — the same
+  three-way split as the existing MemSyco/LoCoMo ablations, generation
+  model `qwen3-8b`. Source data
+  (`predictions_ablation_<variant>_scored_summary.json`) is a different
+  shape than the main memtrap runs: judge output is already aggregated per
+  dimension (`by_dataset.<task>.dimensions.<dim>.{n, mean_raw_1_5}`)
+  instead of raw per-row `round1_judge_results_*.json` files, so these are
+  ingested with the new `scripts/ingest_memtrap_ablation_summary.py`
+  instead of `ingest_memtrap_run.py`. Each task's `overall_avg` is the
+  n-weighted mean across that task's dimension means, mathematically
+  equivalent to `ingest_memtrap_run.py`'s row-level average — so ablation
+  rows are directly comparable to `memtrap_hint_instruct2507`/
+  `memtrap_hint_rl134`. All three runs cover all 6 tasks.
