@@ -312,3 +312,11 @@ the preferred judge hasn't scored that task yet. Then add `<run_id>` to
   equivalent to `ingest_memtrap_run.py`'s row-level average — so ablation
   rows are directly comparable to `memtrap_hint_instruct2507`/
   `memtrap_hint_rl134`. All three runs cover all 6 tasks.
+- A fourth ablation-group row, `ablation_baseline_hint_rl134`, duplicates
+  `memtrap_hint_rl134`'s results (full, unablated RerankMem) so the three
+  memtrap ablations above have a reference point inside the same section —
+  same pattern as `memsyco-rerankmem-hint`'s `ablation_baseline_hint_rl134`.
+  Row order within a section is always sorted by descending Avg, so this
+  row doesn't necessarily render first; here it happens to rank 1st of the
+  four ablation-group rows since none of the three ablations beat full
+  RerankMem.
