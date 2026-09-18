@@ -269,6 +269,20 @@ the preferred judge hasn't scored that task yet. Then add `<run_id>` to
     (`deepseek-v4.1-flash` for both ingested runs) rather than assumed.
     Two runs ingested, both `main`: `persist_hint_instruct2507` and
     `persist_hint_rl134`. Ingested with `scripts/ingest_persist_run.py`.
+- Two more ablations added to `memsyco-rerankmem-hint` (`ablation` group):
+  `ablation_dataaug_resume` (RL134-classic checkpoint continued/resumed
+  training on the augmented dataset) and `ablation_dataaug_scratch`
+  (RL134-classic trained from scratch on the augmented dataset), sourced
+  from `infer/handoffs/memsyco-rerankmem-hint/outputs/
+  memsyco_hint_rl134_classic_dataaug_{resume,scratch}/`. Same standard
+  `<judge_model>/<timestamp>/judged_<task>.jsonl` layout as the main runs,
+  ingested with the existing `ingest_outputs_run.py` (no new script
+  needed). Neither source directory has a `generation/extract_results.jsonl`
+  to auto-detect the generation model from, so `generation_model` was set
+  to `"qwen3-8b"` by hand to match the rest of the RL134-classic family.
+  Both fully judged (5/5 tasks) by `deepseek-v4.1-flash`. Resume scores
+  slightly lower than scratch on Avg (0.528 vs 0.552) and both land below
+  the full-RerankMem baseline (0.552) within this ablation section.
 - Two new datasets added for the `gpt-5.6-luna` base model, sourced from
   `infer/outputs/luna/`: `memsyco-luna-hint` and `locomo-luna-hint`. Kept as
   separate tabs rather than folded into the existing

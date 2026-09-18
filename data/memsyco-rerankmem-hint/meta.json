@@ -68,6 +68,8 @@
     "ablation_baseline_hint_rl134",
     "ablation_full_both",
     "ablation_full_decomp_only",
-    "ablation_full_rerank_only"
+    "ablation_full_rerank_only",
+    "ablation_dataaug_resume",
+    "ablation_dataaug_scratch"
   ]
 }

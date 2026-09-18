@@ -1,0 +1,59 @@
+{
+  "id": "ablation_dataaug_resume",
+  "label": "Ablation: DataAug resume (RL134 classic)",
+  "group": "ablation",
+  "description": "RL134-classic checkpoint continued (resumed) training with the augmented dataset.",
+  "generation_model": "qwen3-8b",
+  "judge_models": [
+    "deepseek-v4.1-flash"
+  ],
+  "date": "",
+  "results": [
+    {
+      "task": "contextual_scope_control",
+      "arm": "with_memory",
+      "n_judged": 300,
+      "headline_metric": "accuracy_avg",
+      "headline_value": 0.32,
+      "incorrectly_used_preference_avg": 0.3466666666666667,
+      "scope_pass_avg": 0.32
+    },
+    {
+      "task": "memory_evidence_conflict",
+      "arm": "with_memory",
+      "n_judged": 300,
+      "headline_metric": "accuracy_avg",
+      "headline_value": 0.8933333333333333,
+      "misled_by_conflicting_memory_avg": 0.10666666666666667,
+      "evidence_pass_avg": 0.8933333333333333
+    },
+    {
+      "task": "objective_fact_judgment",
+      "arm": "with_memory",
+      "n_judged": 300,
+      "headline_metric": "objective_correctness_avg",
+      "headline_value": 0.33666666666666667,
+      "preference_contamination_avg": 0.6033898305084746,
+      "preference_answer_selected_avg": 0.5796610169491525,
+      "suppress_pass_avg": 0.3423728813559322
+    },
+    {
+      "task": "personalized_memory_use",
+      "arm": "with_memory",
+      "n_judged": 300,
+      "headline_metric": "answer_accuracy_avg",
+      "headline_value": 0.5133333333333333,
+      "preference_used_avg": 0.7276119402985075,
+      "memory_use_pass_avg": 0.5597014925373134
+    },
+    {
+      "task": "valid_memory_selection",
+      "arm": "with_memory",
+      "n_judged": 350,
+      "headline_metric": "uses_latest_preference_avg",
+      "headline_value": 0.5742857142857143,
+      "outdated_preference_contamination_avg": 0.40114613180515757,
+      "valid_selection_pass_avg": 0.5501432664756447
+    }
+  ]
+}
