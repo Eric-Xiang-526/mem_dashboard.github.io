@@ -1,0 +1,39 @@
+{
+  "id": "locomo_ablation_dataaug_resume",
+  "label": "Ablation: DataAug resume (RL134 classic)",
+  "group": "ablation",
+  "description": "RL134-classic checkpoint continued (resumed) training with the augmented dataset.",
+  "generation_model": "qwen3-8b",
+  "judge_models": [
+    "refined"
+  ],
+  "date": "",
+  "results": [
+    {
+      "task": "locomo_qa",
+      "arm": "with_memory",
+      "n_judged": 1382,
+      "headline_metric": "llm_score_avg",
+      "headline_value": 0.5434153400868307,
+      "llm_score_avg": 0.5434153400868307,
+      "f1_score_avg": 0.4335147800345802,
+      "bleu_score_avg": 0.36569739310992677,
+      "cat1_llm_score_avg": 0.3286384976525822,
+      "cat1_f1_score_avg": 0.31491510011901686,
+      "cat1_bleu_score_avg": 0.23601723759961843,
+      "cat1_n": 213,
+      "cat2_llm_score_avg": 0.6254180602006689,
+      "cat2_f1_score_avg": 0.5704324540492781,
+      "cat2_bleu_score_avg": 0.47862723614623487,
+      "cat2_n": 299,
+      "cat3_llm_score_avg": 0.5,
+      "cat3_f1_score_avg": 0.34785508907800916,
+      "cat3_bleu_score_avg": 0.2675945675992877,
+      "cat3_n": 68,
+      "cat4_llm_score_avg": 0.57356608478803,
+      "cat4_f1_score_avg": 0.4212307479605994,
+      "cat4_bleu_score_avg": 0.3663543035719765,
+      "cat4_n": 802
+    }
+  ]
+}

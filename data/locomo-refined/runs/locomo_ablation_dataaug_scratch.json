@@ -1,0 +1,39 @@
+{
+  "id": "locomo_ablation_dataaug_scratch",
+  "label": "Ablation: DataAug scratch (RL134 classic)",
+  "group": "ablation",
+  "description": "RL134-classic trained from scratch on the augmented dataset.",
+  "generation_model": "qwen3-8b",
+  "judge_models": [
+    "refined"
+  ],
+  "date": "",
+  "results": [
+    {
+      "task": "locomo_qa",
+      "arm": "with_memory",
+      "n_judged": 1382,
+      "headline_metric": "llm_score_avg",
+      "headline_value": 0.49493487698986977,
+      "llm_score_avg": 0.49493487698986977,
+      "f1_score_avg": 0.42532991478584925,
+      "bleu_score_avg": 0.36138263204591214,
+      "cat1_llm_score_avg": 0.30985915492957744,
+      "cat1_f1_score_avg": 0.3280684589447966,
+      "cat1_bleu_score_avg": 0.24023273555644065,
+      "cat1_n": 213,
+      "cat2_llm_score_avg": 0.5284280936454849,
+      "cat2_f1_score_avg": 0.5020565927725125,
+      "cat2_bleu_score_avg": 0.4279806748778907,
+      "cat2_n": 299,
+      "cat3_llm_score_avg": 0.5,
+      "cat3_f1_score_avg": 0.35765129434547244,
+      "cat3_bleu_score_avg": 0.2963661931176473,
+      "cat3_n": 68,
+      "cat4_llm_score_avg": 0.5311720698254364,
+      "cat4_f1_score_avg": 0.428294452898166,
+      "cat4_bleu_score_avg": 0.37424202231102255,
+      "cat4_n": 802
+    }
+  ]
+}

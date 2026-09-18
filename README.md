@@ -334,3 +334,16 @@ the preferred judge hasn't scored that task yet. Then add `<run_id>` to
   row doesn't necessarily render first; here it happens to rank 1st of the
   four ablation-group rows since none of the three ablations beat full
   RerankMem.
+- Two more ablations added to `locomo-refined` (`ablation` group):
+  `locomo_ablation_dataaug_resume` and `locomo_ablation_dataaug_scratch` —
+  same RL134-classic DataAug resume/scratch split as the memsyco-side
+  ablations above, sourced from `infer/outputs/locomo/predictions_locomo_
+  hint_rl134_classic_dataaug_{resume,scratch}_scored_summary.json`. Same
+  flat `_scored_summary.json` shape the existing
+  `ingest_locomo_scored_summary.py` already handles, so no new script was
+  needed; `generation_model` was passed explicitly as `"qwen3-8b"` via
+  `--generation-model` (this script takes it as a flag, unlike
+  `ingest_outputs_run.py` which needed a manual post-hoc fix for the
+  memsyco-side DataAug runs). Both n=1382: resume llm_score=0.5434,
+  scratch llm_score=0.4949 — both land below the two `full_*` ablations
+  (0.623/0.629) and the `rerank_only` ablation (0.551) within this section.

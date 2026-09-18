@@ -21,6 +21,8 @@
     "locomo_hint_rl134",
     "locomo_ablation_full_both",
     "locomo_ablation_full_decomp_only",
-    "locomo_ablation_full_rerank_only"
+    "locomo_ablation_full_rerank_only",
+    "locomo_ablation_dataaug_resume",
+    "locomo_ablation_dataaug_scratch"
   ]
 }
