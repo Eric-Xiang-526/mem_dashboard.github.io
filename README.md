@@ -347,3 +347,14 @@ the preferred judge hasn't scored that task yet. Then add `<run_id>` to
   memsyco-side DataAug runs). Both n=1382: resume llm_score=0.5434,
   scratch llm_score=0.4949 — both land below the two `full_*` ablations
   (0.623/0.629) and the `rerank_only` ablation (0.551) within this section.
+- Three RerankMem ablations added to `locomo-luna-hint` (`ablation` group,
+  its first-ever ablation rows): `locomo_luna_ablation_full_both`,
+  `locomo_luna_ablation_decomp_only`, `locomo_luna_ablation_rerank_only` —
+  same three-way split as `locomo-refined`'s ablations, generation model
+  `gpt-5.6-luna` (matching this dataset's existing main run). Sourced from
+  `infer/outputs/luna/locomo/predictions_ablation_luna_{both,decomp_only.
+  dedup,rerank_only}_scored_summary.json`, same flat `_scored_summary.json`
+  shape as every other locomo ingestion, no new script needed. All three
+  n=1382: full_both llm_score=0.6143, decomp_only llm_score=0.6288,
+  rerank_only llm_score=0.5586 — decompose-only ranks highest, mirroring
+  the same ordering seen in `locomo-refined`'s ablation section.

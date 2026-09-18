@@ -17,6 +17,9 @@
     }
   ],
   "runs": [
-    "locomo_luna_hint_instruct2507"
+    "locomo_luna_hint_instruct2507",
+    "locomo_luna_ablation_full_both",
+    "locomo_luna_ablation_decomp_only",
+    "locomo_luna_ablation_rerank_only"
   ]
 }

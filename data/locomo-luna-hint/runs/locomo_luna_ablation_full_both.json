@@ -1,0 +1,39 @@
+{
+  "id": "locomo_luna_ablation_full_both",
+  "label": "Ablation: full (both)",
+  "group": "ablation",
+  "description": "Decompose + rerank both enabled (full RerankMem pipeline).",
+  "generation_model": "gpt-5.6-luna",
+  "judge_models": [
+    "refined"
+  ],
+  "date": "",
+  "results": [
+    {
+      "task": "locomo_qa",
+      "arm": "with_memory",
+      "n_judged": 1382,
+      "headline_metric": "llm_score_avg",
+      "headline_value": 0.6143270622286541,
+      "llm_score_avg": 0.6143270622286541,
+      "f1_score_avg": 0.4762148086068087,
+      "bleu_score_avg": 0.40143024250825965,
+      "cat1_llm_score_avg": 0.323943661971831,
+      "cat1_f1_score_avg": 0.30169284415623965,
+      "cat1_bleu_score_avg": 0.2126061878633535,
+      "cat1_n": 213,
+      "cat2_llm_score_avg": 0.6421404682274248,
+      "cat2_f1_score_avg": 0.6147041536661736,
+      "cat2_bleu_score_avg": 0.5226779929476496,
+      "cat2_n": 299,
+      "cat3_llm_score_avg": 0.6617647058823529,
+      "cat3_f1_score_avg": 0.3811278073056104,
+      "cat3_bleu_score_avg": 0.30997041741073134,
+      "cat3_n": 68,
+      "cat4_llm_score_avg": 0.6770573566084788,
+      "cat4_f1_score_avg": 0.478996330232373,
+      "cat4_bleu_score_avg": 0.41413063448409426,
+      "cat4_n": 802
+    }
+  ]
+}
