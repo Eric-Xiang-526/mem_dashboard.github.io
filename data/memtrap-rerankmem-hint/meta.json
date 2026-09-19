@@ -83,9 +83,9 @@
   "runs": [
     "memtrap_hint_instruct2507",
     "memtrap_hint_rl134",
-    "ablation_baseline_hint_rl134",
     "memtrap_ablation_full_both",
     "memtrap_ablation_full_decomp_only",
-    "memtrap_ablation_full_rerank_only"
+    "memtrap_ablation_full_rerank_only",
+    "ours_dataaug_scratch_decomp_rerank"
   ]
 }

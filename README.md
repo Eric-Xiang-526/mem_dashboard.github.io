@@ -431,3 +431,20 @@ the preferred judge hasn't scored that task yet. Then add `<run_id>` to
     identical RL134 numbers directly into the ablation section, the
     duplicate baseline row would have shown the same score twice in one
     table.
+- `memtrap-rerankmem-hint` caught up to the same restructuring once its own
+  "Ours" result showed up (see below): `memtrap_hint_instruct2507` →
+  `no_training_4b` and `memtrap_hint_rl134` → `old_data_4b`, both moved
+  `main` → `ablation`; its `ablation_baseline_hint_rl134` duplicate (same
+  redundancy as memsyco's) was deleted for the same reason.
+- `ours_dataaug_scratch_decomp_rerank` added to `memtrap-rerankmem-hint`
+  (`main` group) — the memtrap counterpart of the "Ours" result already
+  added to the other three datasets: RL134-classic trained from scratch on
+  the augmented dataset, full pipeline (decompose + rerank both enabled).
+  Sourced from `infer/outputs/memtrap/predictions_rlfromscratch_ablate_
+  both_scored_summary.json` (same pre-aggregated `by_dataset.<task>.
+  dimensions.<dim>.mean_raw_1_5` shape as the other memtrap ablations,
+  covers all 6 tasks, judge `deepseek-v4.1-flash` read straight from
+  `target_model`), ingested with the existing
+  `ingest_memtrap_ablation_summary.py --group main --generation-model
+  qwen3-8b`. Avg 4.199 — now the top row in memtrap's main section,
+  narrowly ahead of `old_data_4b`'s 4.195.

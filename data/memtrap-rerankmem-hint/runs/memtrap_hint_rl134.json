@@ -1,8 +1,8 @@
 {
   "id": "memtrap_hint_rl134",
-  "label": "Hint (RL134)",
-  "group": "main",
-  "description": "RerankMem hint mode, RL-iter134 generation, evaluated on MemTrapBench's 6 adversarial memory-trap tasks.",
+  "label": "old_data_4b",
+  "group": "ablation",
+  "description": "RerankMem hint mode, RL-iter134 generation（旧数据训练的 checkpoint）, evaluated on MemTrapBench's 6 adversarial memory-trap tasks.",
   "generation_model": "rl-iter134",
   "judge_models": [
     "deepseek-v4.1-flash"
