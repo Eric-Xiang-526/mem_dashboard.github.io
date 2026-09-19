@@ -1,8 +1,8 @@
 {
   "id": "local_hint_rl134_live_traj",
-  "label": "Hint RL134 live traj",
-  "group": "main",
-  "description": "MemSyco-Bench, RerankMem arm, hint RL134 \u751f\u6210\u6a21\u578b\u3002",
+  "label": "old_data_4b",
+  "group": "ablation",
+  "description": "MemSyco-Bench, RerankMem arm, hint RL134 \u751f\u6210\u6a21\u578b\uff08\u65e7\u6570\u636e\u8bad\u7ec3\u7684 checkpoint\uff09\u3002",
   "generation_model": "qwen3-8b",
   "judge_models": [
     "deepseek-v4.1-flash"

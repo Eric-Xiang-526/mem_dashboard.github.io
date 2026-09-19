@@ -35,6 +35,7 @@
   ],
   "runs": [
     "persist_hint_instruct2507",
-    "persist_hint_rl134"
+    "persist_hint_rl134",
+    "ablation_dataaug_scratch_decomp_rerank"
   ]
 }

@@ -1,8 +1,8 @@
 {
   "id": "local_hint_4b_instruct2507_live_traj",
-  "label": "Hint 4B instruct2507 live traj",
-  "group": "main",
-  "description": "MemSyco-Bench, RerankMem arm, hint 4B instruct2507 \u751f\u6210\u6a21\u578b\u3002",
+  "label": "no_training_4b",
+  "group": "ablation",
+  "description": "MemSyco-Bench, RerankMem arm, hint 4B instruct2507 \u751f\u6210\u6a21\u578b\uff08\u672a\u7ecf RL \u8bad\u7ec3\u7684\u57fa\u5ea7\uff09\u3002",
   "generation_model": "qwen3-8b",
   "judge_models": [
     "deepseek-v4.1-flash"

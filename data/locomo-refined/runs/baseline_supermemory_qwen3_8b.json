@@ -1,0 +1,39 @@
+{
+  "id": "baseline_supermemory_qwen3_8b",
+  "label": "SuperMemory (Qwen3-8B)",
+  "group": "main",
+  "description": "SuperMemory baseline memory system.",
+  "generation_model": "qwen3-8b",
+  "judge_models": [
+    "refined"
+  ],
+  "date": "",
+  "results": [
+    {
+      "task": "locomo_qa",
+      "arm": "with_memory",
+      "n_judged": 1382,
+      "headline_metric": "llm_score_avg",
+      "headline_value": 0.2076700434153401,
+      "llm_score_avg": 0.2076700434153401,
+      "f1_score_avg": 0.18974629451790934,
+      "bleu_score_avg": 0.15623471766475408,
+      "cat1_llm_score_avg": 0.2347417840375587,
+      "cat1_f1_score_avg": 0.23989867620155253,
+      "cat1_bleu_score_avg": 0.18678502485472817,
+      "cat1_n": 213,
+      "cat2_llm_score_avg": 0.030100334448160536,
+      "cat2_f1_score_avg": 0.07131815621595708,
+      "cat2_bleu_score_avg": 0.056569880287945025,
+      "cat2_n": 299,
+      "cat3_llm_score_avg": 0.35294117647058826,
+      "cat3_f1_score_avg": 0.2547690125144612,
+      "cat3_bleu_score_avg": 0.19850340669381333,
+      "cat3_n": 68,
+      "cat4_llm_score_avg": 0.2543640897755611,
+      "cat4_f1_score_avg": 0.21506551051529363,
+      "cat4_bleu_score_avg": 0.1816939447099229,
+      "cat4_n": 802
+    }
+  ]
+}

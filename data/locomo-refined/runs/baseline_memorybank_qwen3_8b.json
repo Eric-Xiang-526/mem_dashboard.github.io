@@ -1,0 +1,39 @@
+{
+  "id": "baseline_memorybank_qwen3_8b",
+  "label": "MemoryBank (Qwen3-8B)",
+  "group": "main",
+  "description": "MemoryBank baseline memory system.",
+  "generation_model": "qwen3-8b",
+  "judge_models": [
+    "refined"
+  ],
+  "date": "",
+  "results": [
+    {
+      "task": "locomo_qa",
+      "arm": "with_memory",
+      "n_judged": 1382,
+      "headline_metric": "llm_score_avg",
+      "headline_value": 0.5282199710564399,
+      "llm_score_avg": 0.5282199710564399,
+      "f1_score_avg": 0.46907364421027253,
+      "bleu_score_avg": 0.40774427780338157,
+      "cat1_llm_score_avg": 0.4507042253521127,
+      "cat1_f1_score_avg": 0.45371102447088,
+      "cat1_bleu_score_avg": 0.3773885843186436,
+      "cat1_n": 213,
+      "cat2_llm_score_avg": 0.09698996655518395,
+      "cat2_f1_score_avg": 0.21154881946551796,
+      "cat2_bleu_score_avg": 0.1564650671420373,
+      "cat2_n": 299,
+      "cat3_llm_score_avg": 0.5588235294117647,
+      "cat3_f1_score_avg": 0.4351515129761578,
+      "cat3_bleu_score_avg": 0.37720458084499375,
+      "cat3_n": 68,
+      "cat4_llm_score_avg": 0.7069825436408977,
+      "cat4_f1_score_avg": 0.572039810702906,
+      "cat4_bleu_score_avg": 0.5120771282936079,
+      "cat4_n": 802
+    }
+  ]
+}

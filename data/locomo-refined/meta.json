@@ -19,10 +19,17 @@
   "runs": [
     "locomo_hint_instruct2507",
     "locomo_hint_rl134",
+    "baseline_a_mem_qwen3_8b",
+    "baseline_memgpt_qwen3_8b",
+    "baseline_mem0_qwen3_8b",
+    "baseline_memorybank_qwen3_8b",
+    "baseline_naiverag_qwen3_8b",
+    "baseline_supermemory_qwen3_8b",
     "locomo_ablation_full_both",
     "locomo_ablation_full_decomp_only",
     "locomo_ablation_full_rerank_only",
     "locomo_ablation_dataaug_resume",
-    "locomo_ablation_dataaug_scratch"
+    "locomo_ablation_dataaug_scratch",
+    "locomo_ablation_dataaug_scratch_decomp_rerank"
   ]
 }

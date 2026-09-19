@@ -358,3 +358,76 @@ the preferred judge hasn't scored that task yet. Then add `<run_id>` to
   n=1382: full_both llm_score=0.6143, decomp_only llm_score=0.6288,
   rerank_only llm_score=0.5586 — decompose-only ranks highest, mirroring
   the same ordering seen in `locomo-refined`'s ablation section.
+- One new ablation row, `ablation_dataaug_scratch_decomp_rerank`, added to
+  all three of `memsyco-rerankmem-hint`, `locomo-refined` (as
+  `locomo_ablation_dataaug_scratch_decomp_rerank`), and
+  `persist-rerankmem-hint` (its first-ever ablation row) — a fresh
+  RL134-classic-from-scratch-on-DataAug run with the full pipeline
+  (decompose + rerank both enabled), distinct from the existing
+  `ablation_dataaug_scratch`/`locomo_ablation_dataaug_scratch` rows (those
+  came from a different source directory,
+  `memsyco_hint_rl134_classic_dataaug_scratch`, predating this pipeline
+  variant). Sourced from `infer/outputs/{memsyco,locomo,persist}/`
+  files/dirs timestamped `20260918`-`20260919`. memsyco and locomo used the
+  existing `ingest_outputs_run.py`/`ingest_locomo_scored_summary.py`
+  (memsyco again needed the `generation_model` hand-fix to `"qwen3-8b"`,
+  same gap as the other DataAug ablations). Persist used
+  `ingest_persist_run.py` against `checkpoint_persist_hint_rl134_classic_
+  20260918_1742.json`; its `generation_model` was also normalized to
+  `"qwen3-8b"` by hand (the raw checkpoint's model tag,
+  `persist_qwen3-4b-rl-multiscope-fromscratch-iter148_qwen3-8b`, was kept
+  out of this field for consistency with sibling ablation rows). Its source
+  checkpoint's `metadata.judge_model` said `moonshotai/kimi-k2-thinking`,
+  but that was a mislabel in the checkpoint metadata — this run was
+  actually judged by `deepseek-v4.1-flash`, same as every other
+  persist-rerankmem-hint run, so `judge_models` was corrected accordingly
+  and its score (Avg 2.81) is directly comparable to the two main-section
+  rows (3.26/2.90). memsyco Avg 0.578 (2nd of 7 ablation rows,
+  just behind `ablation_full_both`'s 0.579); locomo Avg 0.552 (mid-pack of
+  6 ablation rows).
+- Six Qwen3-8B baselines added to `locomo-refined` (`main` group):
+  `baseline_a_mem_qwen3_8b`, `baseline_memgpt_qwen3_8b`,
+  `baseline_mem0_qwen3_8b`, `baseline_memorybank_qwen3_8b`,
+  `baseline_naiverag_qwen3_8b`, `baseline_supermemory_qwen3_8b` — the same
+  baseline family already present in `memsyco-rerankmem-hint`, now added
+  to LoCoMo too. Sourced from `infer/outputs/locomo/<Method>_ctrl_20260918/
+  predictions_<method>_scored_summary.json` (the source folder for the
+  Mem0 baseline is named `MemZero_ctrl_20260918`; labeled "Mem0" here to
+  match the memsyco-side naming convention for the same tool). All
+  n=1382, ingested with the existing `ingest_locomo_scored_summary.py
+  --group main --generation-model qwen3-8b` (generation model isn't
+  recorded in these source files, so it was passed explicitly to match
+  the memsyco baseline family convention). llm_score: MemoryBank 0.528
+  (best of the six, and above both existing RerankMem main-section rows),
+  A-Mem 0.506, MemGPT 0.502, NaiveRAG 0.436, Mem0 0.295, SuperMemory 0.208.
+- Main-table restructuring across `memsyco-rerankmem-hint`, `locomo-refined`,
+  and `persist-rerankmem-hint` (the three datasets that have an "Ours"-style
+  DataAug-scratch-decomp+rerank result; `memtrap-rerankmem-hint` left
+  untouched since it has no such result yet):
+  - The old "Hint (Instruct-2507)"-style main row (the 4B-instruct2507
+    generation model, no RL training) is relabeled `no_training_4b` and
+    moved from `main` to `ablation` in all three datasets — it's a
+    no-RL-training reference point for the ablation section, not a
+    competitive main-table entry. Run ids unchanged
+    (`local_hint_4b_instruct2507_live_traj` / `locomo_hint_instruct2507` /
+    `persist_hint_instruct2507`), only `label`/`group`/`description`
+    edited.
+  - The old "Hint (RL134)"-style main row (RL-iter134 generation, trained
+    on the pre-DataAug dataset) is relabeled `old_data_4b` and moved from
+    `main` to `ablation` in all three datasets, for the same reason — it's
+    now a "trained on old data" reference point, not the headline result.
+    Run ids unchanged (`local_hint_rl134_live_traj` / `locomo_hint_rl134` /
+    `persist_hint_rl134`).
+  - `ablation_dataaug_scratch_decomp_rerank` (and its locomo counterpart
+    `locomo_ablation_dataaug_scratch_decomp_rerank`) — the newest
+    RL134-classic-scratch-DataAug, full-pipeline result added in the
+    previous round — is relabeled `Ours` and moved from `ablation` to
+    `main` in all three datasets. This is now the headline row: memsyco
+    Avg 0.578, locomo Avg 0.552, persist Avg 2.81 — each currently the top
+    (or only) row in its dataset's main section.
+  - `memsyco-rerankmem-hint`'s `ablation_baseline_hint_rl134` (a duplicate
+    of the RL134 result kept only as a same-section reference point for
+    the ablation rows) was deleted — now that `old_data_4b` carries the
+    identical RL134 numbers directly into the ablation section, the
+    duplicate baseline row would have shown the same score twice in one
+    table.

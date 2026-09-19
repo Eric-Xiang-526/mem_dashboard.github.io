@@ -1,0 +1,39 @@
+{
+  "id": "locomo_ablation_dataaug_scratch_decomp_rerank",
+  "label": "Ours",
+  "group": "main",
+  "description": "RL134-classic trained from scratch on the augmented dataset, full pipeline (decompose + rerank both enabled).",
+  "generation_model": "qwen3-8b",
+  "judge_models": [
+    "refined"
+  ],
+  "date": "",
+  "results": [
+    {
+      "task": "locomo_qa",
+      "arm": "with_memory",
+      "n_judged": 1382,
+      "headline_metric": "llm_score_avg",
+      "headline_value": 0.5520984081041969,
+      "llm_score_avg": 0.5520984081041969,
+      "f1_score_avg": 0.46327588189021734,
+      "bleu_score_avg": 0.39417118298152326,
+      "cat1_llm_score_avg": 0.29107981220657275,
+      "cat1_f1_score_avg": 0.3130197648802935,
+      "cat1_bleu_score_avg": 0.22427756759934192,
+      "cat1_n": 213,
+      "cat2_llm_score_avg": 0.5451505016722408,
+      "cat2_f1_score_avg": 0.5049687827929029,
+      "cat2_bleu_score_avg": 0.42630679056990184,
+      "cat2_n": 299,
+      "cat3_llm_score_avg": 0.5,
+      "cat3_f1_score_avg": 0.3522204574110104,
+      "cat3_bleu_score_avg": 0.30416781661354375,
+      "cat3_n": 68,
+      "cat4_llm_score_avg": 0.628428927680798,
+      "cat4_f1_score_avg": 0.4970541168251267,
+      "cat4_bleu_score_avg": 0.43494303126145123,
+      "cat4_n": 802
+    }
+  ]
+}

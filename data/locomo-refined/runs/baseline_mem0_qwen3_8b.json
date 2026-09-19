@@ -1,0 +1,39 @@
+{
+  "id": "baseline_mem0_qwen3_8b",
+  "label": "Mem0 (Qwen3-8B)",
+  "group": "main",
+  "description": "Mem0 baseline memory system (source folder labeled MemZero).",
+  "generation_model": "qwen3-8b",
+  "judge_models": [
+    "refined"
+  ],
+  "date": "",
+  "results": [
+    {
+      "task": "locomo_qa",
+      "arm": "with_memory",
+      "n_judged": 1382,
+      "headline_metric": "llm_score_avg",
+      "headline_value": 0.2952243125904486,
+      "llm_score_avg": 0.2952243125904486,
+      "f1_score_avg": 0.2800161946686757,
+      "bleu_score_avg": 0.23079221540757902,
+      "cat1_llm_score_avg": 0.2300469483568075,
+      "cat1_f1_score_avg": 0.266722339949741,
+      "cat1_bleu_score_avg": 0.18158531813245707,
+      "cat1_n": 213,
+      "cat2_llm_score_avg": 0.07692307692307693,
+      "cat2_f1_score_avg": 0.15626944854451824,
+      "cat2_bleu_score_avg": 0.12492677615360223,
+      "cat2_n": 299,
+      "cat3_llm_score_avg": 0.4852941176470588,
+      "cat3_f1_score_avg": 0.350491438851382,
+      "cat3_bleu_score_avg": 0.27024520643882216,
+      "cat3_n": 68,
+      "cat4_llm_score_avg": 0.3778054862842893,
+      "cat4_f1_score_avg": 0.32370640856123456,
+      "cat4_bleu_score_avg": 0.2799842753407654,
+      "cat4_n": 802
+    }
+  ]
+}

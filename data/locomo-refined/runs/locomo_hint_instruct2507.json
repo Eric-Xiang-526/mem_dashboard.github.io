@@ -1,8 +1,8 @@
 {
   "id": "locomo_hint_instruct2507",
-  "label": "Hint (Qwen3-4B-Instruct-2507)",
-  "group": "main",
-  "description": "RerankMem hint mode on LoCoMo (refined), instruct-2507 checkpoint.",
+  "label": "no_training_4b",
+  "group": "ablation",
+  "description": "RerankMem hint mode on LoCoMo (refined), instruct-2507 checkpoint (未经 RL 训练的基座).",
   "generation_model": "qwen3-4b-instruct-2507",
   "judge_models": [
     "refined"

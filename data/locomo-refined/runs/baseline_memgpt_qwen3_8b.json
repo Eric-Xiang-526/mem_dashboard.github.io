@@ -1,0 +1,39 @@
+{
+  "id": "baseline_memgpt_qwen3_8b",
+  "label": "MemGPT (Qwen3-8B)",
+  "group": "main",
+  "description": "MemGPT baseline memory system.",
+  "generation_model": "qwen3-8b",
+  "judge_models": [
+    "refined"
+  ],
+  "date": "",
+  "results": [
+    {
+      "task": "locomo_qa",
+      "arm": "with_memory",
+      "n_judged": 1382,
+      "headline_metric": "llm_score_avg",
+      "headline_value": 0.5021707670043415,
+      "llm_score_avg": 0.5021707670043415,
+      "f1_score_avg": 0.4013735197033581,
+      "bleu_score_avg": 0.3419485365588573,
+      "cat1_llm_score_avg": 0.4084507042253521,
+      "cat1_f1_score_avg": 0.42335608432082694,
+      "cat1_bleu_score_avg": 0.33450439699576906,
+      "cat1_n": 213,
+      "cat2_llm_score_avg": 0.0903010033444816,
+      "cat2_f1_score_avg": 0.11613053229247855,
+      "cat2_bleu_score_avg": 0.08134277357530079,
+      "cat2_n": 299,
+      "cat3_llm_score_avg": 0.6323529411764706,
+      "cat3_f1_score_avg": 0.4297827242067407,
+      "cat3_bleu_score_avg": 0.357750805529935,
+      "cat3_n": 68,
+      "cat4_llm_score_avg": 0.669576059850374,
+      "cat4_f1_score_avg": 0.49947020432443306,
+      "cat4_bleu_score_avg": 0.4397442604603385,
+      "cat4_n": 802
+    }
+  ]
+}

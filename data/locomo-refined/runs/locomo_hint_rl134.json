@@ -1,8 +1,8 @@
 {
   "id": "locomo_hint_rl134",
-  "label": "Hint (RL iter134)",
-  "group": "main",
-  "description": "RerankMem hint mode on LoCoMo (refined), RL checkpoint iter134 (answer-only).",
+  "label": "old_data_4b",
+  "group": "ablation",
+  "description": "RerankMem hint mode on LoCoMo (refined), RL checkpoint iter134 (answer-only)（旧数据训练的 checkpoint）.",
   "generation_model": "rl-iter134",
   "judge_models": [
     "refined"

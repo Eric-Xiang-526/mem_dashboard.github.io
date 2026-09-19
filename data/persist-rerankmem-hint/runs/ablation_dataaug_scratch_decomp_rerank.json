@@ -1,0 +1,34 @@
+{
+  "id": "ablation_dataaug_scratch_decomp_rerank",
+  "label": "Ours",
+  "group": "main",
+  "description": "RL134-classic trained from scratch on the augmented dataset, full pipeline (decompose + rerank both enabled).",
+  "generation_model": "qwen3-8b",
+  "judge_models": [
+    "deepseek-v4.1-flash"
+  ],
+  "date": "",
+  "results": [
+    {
+      "task": "cross_domain",
+      "n_judged": 200,
+      "headline_metric": "score_avg",
+      "headline_value": 2.125,
+      "score_avg": 2.125
+    },
+    {
+      "task": "sycophancy",
+      "n_judged": 200,
+      "headline_metric": "score_avg",
+      "headline_value": 3.785,
+      "score_avg": 3.785
+    },
+    {
+      "task": "beneficial_memory_usage",
+      "n_judged": 100,
+      "headline_metric": "score_avg",
+      "headline_value": 2.51,
+      "score_avg": 2.51
+    }
+  ]
+}
