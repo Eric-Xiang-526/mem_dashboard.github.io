@@ -448,3 +448,25 @@ the preferred judge hasn't scored that task yet. Then add `<run_id>` to
   `ingest_memtrap_ablation_summary.py --group main --generation-model
   qwen3-8b`. Avg 4.199 — now the top row in memtrap's main section,
   narrowly ahead of `old_data_4b`'s 4.195.
+- New dataset tab `locomo-origin` ("LoCoMo (Origin)") added, covering the
+  ORIGINAL (unrefined) LoCoMo QA set — 1986 questions across 5 official
+  snap-research categories, scored with token-F1 via a new script,
+  `scripts/ingest_locomo_origin_run.py` (re-implements
+  `infer/handoffs/locomo-origin/score_origin.py`'s normalize/stem/F1 logic
+  standalone, reading gold answers + categories from
+  `infer/handoffs/locomo-origin/bench/data/public/questions.jsonl`).
+  Category 5 ("adversarial", refusal-style scoring, not comparable to
+  token-F1 on the other four) is **excluded from every row**: only
+  categories 1 (multi-hop), 2 (temporal), 3 (open-domain), 4 (single-hop)
+  are shown as metrics, and the headline `avg4_f1` is the n-weighted mean
+  over just those four (1540 of the 1986 questions). The excluded
+  category-5 score/count is still stored on each run's result object
+  (`cat5_adversarial_f1_excluded` / `_n_excluded`) for reference but never
+  surfaced in `metrics`, so it can't accidentally show up in the UI.
+  Populated from `infer/outputs/locomo_origin/`: 6 baselines (A-Mem,
+  MemGPT, Mem0/MemZero, MemoryBank, NaiveRAG, SuperMemory) plus `ours_full`
+  ("Ours", full RerankMem hint pipeline), all `main` group, all
+  `qwen3-8b` generation. Avg4 F1: MemoryBank 0.410, A-Mem 0.371, MemGPT
+  0.370, NaiveRAG 0.358, Mem0 0.238, SuperMemory 0.177, **Ours 0.416**
+  (top of the table). Judge field is `token_f1` (deterministic metric, no
+  LLM judge involved) rather than a model name.

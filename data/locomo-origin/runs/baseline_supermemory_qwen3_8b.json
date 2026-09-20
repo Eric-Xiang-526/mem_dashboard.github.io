@@ -1,0 +1,30 @@
+{
+  "id": "baseline_supermemory_qwen3_8b",
+  "label": "SuperMemory (Qwen3-8B)",
+  "group": "main",
+  "description": "SuperMemory baseline memory system on original LoCoMo (token-F1, adversarial category excluded).",
+  "generation_model": "qwen3-8b",
+  "judge_models": [
+    "token_f1"
+  ],
+  "date": "",
+  "results": [
+    {
+      "task": "locomo_qa",
+      "n_judged": 1540,
+      "headline_metric": "avg4_f1",
+      "headline_value": 0.17662741344531144,
+      "avg4_f1": 0.17662741344531144,
+      "cat1_f1": 0.23346948846002788,
+      "cat1_n": 282,
+      "cat2_f1": 0.04240138413257311,
+      "cat2_n": 321,
+      "cat3_f1": 0.18670719881021067,
+      "cat3_n": 96,
+      "cat4_f1": 0.2076493288557854,
+      "cat4_n": 841,
+      "cat5_adversarial_f1_excluded": 0.006726457399103139,
+      "cat5_adversarial_n_excluded": 446
+    }
+  ]
+}

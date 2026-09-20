@@ -1,0 +1,30 @@
+{
+  "id": "baseline_naiverag_qwen3_8b",
+  "label": "NaiveRAG (Qwen3-8B)",
+  "group": "main",
+  "description": "NaiveRAG baseline memory system on original LoCoMo (token-F1, adversarial category excluded).",
+  "generation_model": "qwen3-8b",
+  "judge_models": [
+    "token_f1"
+  ],
+  "date": "",
+  "results": [
+    {
+      "task": "locomo_qa",
+      "n_judged": 1540,
+      "headline_metric": "avg4_f1",
+      "headline_value": 0.3582453520217378,
+      "avg4_f1": 0.3582453520217378,
+      "cat1_f1": 0.26196853236060236,
+      "cat1_n": 282,
+      "cat2_f1": 0.125486889060281,
+      "cat2_n": 321,
+      "cat3_f1": 0.27803018128385776,
+      "cat3_n": 96,
+      "cat4_f1": 0.4885261916720402,
+      "cat4_n": 841,
+      "cat5_adversarial_f1_excluded": 0.011210762331838564,
+      "cat5_adversarial_n_excluded": 446
+    }
+  ]
+}

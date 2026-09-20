@@ -1,0 +1,30 @@
+{
+  "id": "baseline_mem0_qwen3_8b",
+  "label": "Mem0 (Qwen3-8B)",
+  "group": "main",
+  "description": "Mem0 baseline memory system on original LoCoMo (token-F1, adversarial category excluded). Source folder labeled MemZero.",
+  "generation_model": "qwen3-8b",
+  "judge_models": [
+    "token_f1"
+  ],
+  "date": "",
+  "results": [
+    {
+      "task": "locomo_qa",
+      "n_judged": 1540,
+      "headline_metric": "avg4_f1",
+      "headline_value": 0.23814672328469663,
+      "avg4_f1": 0.23814672328469663,
+      "cat1_f1": 0.2405672612984777,
+      "cat1_n": 282,
+      "cat2_f1": 0.04848147420437405,
+      "cat2_n": 321,
+      "cat3_f1": 0.22905996899692507,
+      "cat3_n": 96,
+      "cat4_f1": 0.31076536971338076,
+      "cat4_n": 841,
+      "cat5_adversarial_f1_excluded": 0.013452914798206279,
+      "cat5_adversarial_n_excluded": 446
+    }
+  ]
+}

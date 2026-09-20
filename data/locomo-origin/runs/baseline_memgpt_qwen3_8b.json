@@ -1,0 +1,30 @@
+{
+  "id": "baseline_memgpt_qwen3_8b",
+  "label": "MemGPT (Qwen3-8B)",
+  "group": "main",
+  "description": "MemGPT baseline memory system on original LoCoMo (token-F1, adversarial category excluded).",
+  "generation_model": "qwen3-8b",
+  "judge_models": [
+    "token_f1"
+  ],
+  "date": "",
+  "results": [
+    {
+      "task": "locomo_qa",
+      "n_judged": 1540,
+      "headline_metric": "avg4_f1",
+      "headline_value": 0.37021762344039105,
+      "avg4_f1": 0.37021762344039105,
+      "cat1_f1": 0.41097099553318095,
+      "cat1_n": 282,
+      "cat2_f1": 0.10651149549128852,
+      "cat2_n": 321,
+      "cat3_f1": 0.27184169331921193,
+      "cat3_n": 96,
+      "cat4_f1": 0.46843558471640573,
+      "cat4_n": 841,
+      "cat5_adversarial_f1_excluded": 0.02914798206278027,
+      "cat5_adversarial_n_excluded": 446
+    }
+  ]
+}

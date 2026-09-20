@@ -11,6 +11,11 @@
       "path": "data/locomo-refined/"
     },
     {
+      "id": "locomo-origin",
+      "name": "LoCoMo (Origin)",
+      "path": "data/locomo-origin/"
+    },
+    {
       "id": "memtrap-rerankmem-hint",
       "name": "MemTrapBench · RerankMem (Hint)",
       "path": "data/memtrap-rerankmem-hint/"

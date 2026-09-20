@@ -1,0 +1,30 @@
+{
+  "id": "baseline_memorybank_qwen3_8b",
+  "label": "MemoryBank (Qwen3-8B)",
+  "group": "main",
+  "description": "MemoryBank baseline memory system on original LoCoMo (token-F1, adversarial category excluded).",
+  "generation_model": "qwen3-8b",
+  "judge_models": [
+    "token_f1"
+  ],
+  "date": "",
+  "results": [
+    {
+      "task": "locomo_qa",
+      "n_judged": 1540,
+      "headline_metric": "avg4_f1",
+      "headline_value": 0.4101088101363671,
+      "avg4_f1": 0.4101088101363671,
+      "cat1_f1": 0.43260113638964437,
+      "cat1_n": 282,
+      "cat2_f1": 0.10774489442713739,
+      "cat2_n": 321,
+      "cat3_f1": 0.3128098629582023,
+      "cat3_n": 96,
+      "cat4_f1": 0.5290822701462866,
+      "cat4_n": 841,
+      "cat5_adversarial_f1_excluded": 0.020179372197309416,
+      "cat5_adversarial_n_excluded": 446
+    }
+  ]
+}

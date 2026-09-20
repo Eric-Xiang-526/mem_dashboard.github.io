@@ -1,0 +1,30 @@
+{
+  "id": "locomo-origin",
+  "name": "LoCoMo (Origin)",
+  "benchmark": "LoCoMo_origin",
+  "description": "RerankMem hint mode evaluated on the original LoCoMo QA set (1986 questions), scored with the official snap-research token-F1 metric per question category. The adversarial category (5) is excluded from every row shown here — its near-zero refusal-style scores are not comparable to the other four categories, so headline/avg is the n-weighted mean over categories 1-4 only (1540 questions).",
+  "source_path": "infer/outputs/locomo_origin",
+  "tasks": [
+    {
+      "id": "locomo_qa",
+      "short": "locomo_qa",
+      "headline_metric": "avg4_f1",
+      "metrics": [
+        { "key": "avg4_f1", "label": "Avg (cat 1-4)" },
+        { "key": "cat1_f1", "label": "Multi-hop (1)" },
+        { "key": "cat2_f1", "label": "Temporal (2)" },
+        { "key": "cat3_f1", "label": "Open-domain (3)" },
+        { "key": "cat4_f1", "label": "Single-hop (4)" }
+      ]
+    }
+  ],
+  "runs": [
+    "baseline_a_mem_qwen3_8b",
+    "baseline_memgpt_qwen3_8b",
+    "baseline_mem0_qwen3_8b",
+    "baseline_memorybank_qwen3_8b",
+    "baseline_naiverag_qwen3_8b",
+    "baseline_supermemory_qwen3_8b",
+    "ours_full"
+  ]
+}

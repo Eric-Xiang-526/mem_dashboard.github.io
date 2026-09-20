@@ -1,0 +1,30 @@
+{
+  "id": "ours_full",
+  "label": "Ours",
+  "group": "main",
+  "description": "Full RerankMem hint pipeline on original LoCoMo (token-F1, adversarial category excluded).",
+  "generation_model": "qwen3-8b",
+  "judge_models": [
+    "token_f1"
+  ],
+  "date": "",
+  "results": [
+    {
+      "task": "locomo_qa",
+      "n_judged": 1540,
+      "headline_metric": "avg4_f1",
+      "headline_value": 0.41571248329389926,
+      "avg4_f1": 0.41571248329389926,
+      "cat1_f1": 0.2743273967654225,
+      "cat1_n": 282,
+      "cat2_f1": 0.3815481482945078,
+      "cat2_n": 321,
+      "cat3_f1": 0.2535225769585007,
+      "cat3_n": 96,
+      "cat4_f1": 0.494675119374795,
+      "cat4_n": 841,
+      "cat5_adversarial_f1_excluded": 0.01569506726457399,
+      "cat5_adversarial_n_excluded": 446
+    }
+  ]
+}
