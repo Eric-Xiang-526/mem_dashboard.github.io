@@ -83,6 +83,12 @@
   "runs": [
     "memtrap_hint_instruct2507",
     "memtrap_hint_rl134",
+    "memtrap_baseline_a_mem_qwen3_8b",
+    "memtrap_baseline_memgpt_qwen3_8b",
+    "memtrap_baseline_mem0_qwen3_8b",
+    "memtrap_baseline_memorybank_qwen3_8b",
+    "memtrap_baseline_naiverag_qwen3_8b",
+    "memtrap_baseline_supermemory_qwen3_8b",
     "memtrap_ablation_full_both",
     "memtrap_ablation_full_decomp_only",
     "memtrap_ablation_full_rerank_only",

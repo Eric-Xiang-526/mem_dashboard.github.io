@@ -470,3 +470,16 @@ the preferred judge hasn't scored that task yet. Then add `<run_id>` to
   0.370, NaiveRAG 0.358, Mem0 0.238, SuperMemory 0.177, **Ours 0.416**
   (top of the table). Judge field is `token_f1` (deterministic metric, no
   LLM judge involved) rather than a model name.
+- Added 6 baselines to `memtrap-rerankmem-hint`'s main section (A-Mem,
+  MemGPT, Mem0/MemZero, MemoryBank, NaiveRAG, SuperMemory — same set as
+  the locomo-origin/locomo-refined baselines), from
+  `infer/outputs/memtrap/baseline/<System>/memtrap_eval_retrieved_<tag>/`,
+  ingested with the existing `ingest_memtrap_run.py` (raw
+  `round1_judge_results_retrieved_memory_<task>_<judge>.json` per-task
+  layout, same as the other memtrap runs). The judge filenames say
+  `qwen3-8b`, but per user confirmation that's a labeling mistake — these
+  were actually judged by `deepseek-v4.1-flash` like every other row in
+  this table, so `judge_models` was corrected post-ingestion and each
+  description notes the discrepancy. Task-mean scores: NaiveRAG 3.28,
+  A-Mem 3.25, MemoryBank 3.17, Mem0 3.11, MemGPT 2.74, SuperMemory 2.40 —
+  all well below `Ours` (4.20) and `old_data_4b` (4.19).

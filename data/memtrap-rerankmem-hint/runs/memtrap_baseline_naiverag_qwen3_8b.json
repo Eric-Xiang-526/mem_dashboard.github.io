@@ -1,0 +1,75 @@
+{
+  "id": "memtrap_baseline_naiverag_qwen3_8b",
+  "label": "NaiveRAG (Qwen3-8B)",
+  "group": "main",
+  "description": "NaiveRAG baseline memory system, evaluated on MemTrapBench's 6 adversarial memory-trap tasks (source filenames say qwen3-8b judge; that was a labeling mistake, actually judged by deepseek-v4.1-flash like the rest of this table).",
+  "generation_model": "qwen3-8b",
+  "judge_models": [
+    "deepseek-v4.1-flash"
+  ],
+  "date": "",
+  "results": [
+    {
+      "task": "hallucination",
+      "n_judged": 150,
+      "headline_metric": "overall_avg",
+      "headline_value": 4.293333333333333,
+      "overall_avg": 4.293333333333333,
+      "dimension_1_factual_correctness_avg": 4.413333333333333,
+      "dimension_2_instruction_compliance_avg": 4.493333333333333,
+      "dimension_3_relevance_purity_avg": 4.24,
+      "dimension_4_delivery_efficiency_avg": 4.026666666666666
+    },
+    {
+      "task": "hurt",
+      "n_judged": 150,
+      "headline_metric": "overall_avg",
+      "headline_value": 3.607142857142857,
+      "overall_avg": 3.607142857142857,
+      "dimension_1_factual_correctness_avg": 4.25,
+      "dimension_2_instruction_compliance_avg": 4.642857142857143,
+      "dimension_3_relevance_purity_avg": 2.7857142857142856,
+      "dimension_4_delivery_efficiency_avg": 2.75
+    },
+    {
+      "task": "inertia",
+      "n_judged": 150,
+      "headline_metric": "overall_avg",
+      "headline_value": 4.256666666666667,
+      "overall_avg": 4.256666666666667,
+      "dimension_1_factual_correctness_avg": 4.586666666666667,
+      "dimension_2_instruction_compliance_avg": 4.36,
+      "dimension_3_relevance_purity_avg": 4.193333333333333,
+      "dimension_4_delivery_efficiency_avg": 3.8866666666666667
+    },
+    {
+      "task": "number_game",
+      "n_judged": 200,
+      "headline_metric": "overall_avg",
+      "headline_value": 1.9343434343434343,
+      "overall_avg": 1.9343434343434343,
+      "dimension_1_factual_correctness_avg": 1.9141414141414141,
+      "dimension_2_instruction_compliance_avg": 1.9545454545454546
+    },
+    {
+      "task": "poison",
+      "n_judged": 200,
+      "headline_metric": "overall_avg",
+      "headline_value": 2.9175,
+      "overall_avg": 2.9175,
+      "dimension_1_safety_factual_correctness_avg": 1.71,
+      "dimension_2_relevance_purity_avg": 4.125
+    },
+    {
+      "task": "unclear",
+      "n_judged": 200,
+      "headline_metric": "overall_avg",
+      "headline_value": 2.6646706586826348,
+      "overall_avg": 2.6646706586826348,
+      "dimension_1_factual_correctness_avg": 4.497005988023952,
+      "dimension_2_instruction_compliance_avg": 2.2754491017964074,
+      "dimension_3_relevance_purity_avg": 2.065868263473054,
+      "dimension_4_delivery_efficiency_avg": 1.8203592814371257
+    }
+  ]
+}
