@@ -148,12 +148,6 @@ html, body {
   font-variant-numeric: tabular-nums;
   font-weight: 700;
 }
-.results-table td.notes-cell {
-  white-space: normal;
-  color: var(--text-secondary);
-  font-size: 12.5px;
-  max-width: 260px;
-}
 .run-cell { display: flex; flex-direction: column; gap: 2px; }
 .run-label { font-weight: 600; }
 .run-sub { font-size: 11px; color: var(--text-muted); font-variant-numeric: tabular-nums; }

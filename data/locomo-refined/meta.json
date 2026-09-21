@@ -12,7 +12,19 @@
       "metrics": [
         { "key": "llm_score_avg", "label": "LLM Score" },
         { "key": "f1_score_avg", "label": "F1" },
-        { "key": "bleu_score_avg", "label": "BLEU" }
+        { "key": "bleu_score_avg", "label": "BLEU" },
+        { "key": "cat1_llm_score_avg", "label": "Multi-hop (1) LLM" },
+        { "key": "cat1_f1_score_avg", "label": "Multi-hop (1) F1" },
+        { "key": "cat1_bleu_score_avg", "label": "Multi-hop (1) BLEU" },
+        { "key": "cat2_llm_score_avg", "label": "Temporal (2) LLM" },
+        { "key": "cat2_f1_score_avg", "label": "Temporal (2) F1" },
+        { "key": "cat2_bleu_score_avg", "label": "Temporal (2) BLEU" },
+        { "key": "cat3_llm_score_avg", "label": "Open-domain (3) LLM" },
+        { "key": "cat3_f1_score_avg", "label": "Open-domain (3) F1" },
+        { "key": "cat3_bleu_score_avg", "label": "Open-domain (3) BLEU" },
+        { "key": "cat4_llm_score_avg", "label": "Single-hop (4) LLM" },
+        { "key": "cat4_f1_score_avg", "label": "Single-hop (4) F1" },
+        { "key": "cat4_bleu_score_avg", "label": "Single-hop (4) BLEU" }
       ]
     }
   ],

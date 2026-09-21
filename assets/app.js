@@ -106,7 +106,7 @@ function sectionHtml(group) {
   const totalMetricCols = state.meta.tasks.reduce((n, t) => n + taskMetrics(t).length, 0);
   const bodyHtml = sorted.length
     ? sorted.map((run) => rowHtml(run, ranks)).join("")
-    : `<tr><td colspan="${totalMetricCols + 3}"><div class="empty-state">No runs in this group yet.</div></td></tr>`;
+    : `<tr><td colspan="${totalMetricCols + 2}"><div class="empty-state">No runs in this group yet.</div></td></tr>`;
 
   return `
     <section class="run-section">
@@ -121,7 +121,6 @@ function sectionHtml(group) {
               <th rowspan="2">Run</th>
               ${state.meta.tasks.map((t) => `<th colspan="${taskMetrics(t).length}">${escapeHtml(t.short)}</th>`).join("")}
               <th rowspan="2">Avg</th>
-              <th rowspan="2">Notes</th>
             </tr>
             <tr>
               ${state.meta.tasks.map((t) => taskMetrics(t).map((m) => `<th class="metric-subhead">${escapeHtml(m.label)}</th>`).join("")).join("")}
@@ -164,7 +163,6 @@ function rowHtml(run, ranks) {
       </td>
       ${cells}
       <td class="mean-cell">${m === null ? "—" : formatValue(m, meanFormat)}</td>
-      <td class="notes-cell">${escapeHtml(run.description || "")}</td>
     </tr>
   `;
 }
