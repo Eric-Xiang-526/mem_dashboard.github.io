@@ -1,0 +1,23 @@
+{
+  "id": "baseline_no_memory_gpt_4o_mini",
+  "label": "No Memory (GPT-4o-mini)",
+  "group": "main",
+  "description": "GPT-4o-mini no-memory reference, objective_fact_judgment only (no_memory arm), from the 4o-mini flat eval outputs.",
+  "generation_model": "gpt-4o-mini",
+  "judge_models": [
+    "deepseek-v4.1-flash"
+  ],
+  "date": "",
+  "results": [
+    {
+      "task": "objective_fact_judgment",
+      "arm": "no_memory",
+      "n_judged": 100,
+      "headline_metric": "objective_correctness_avg",
+      "headline_value": 0.68,
+      "preference_contamination_avg": 0.22,
+      "preference_answer_selected_avg": 0.2,
+      "suppress_pass_avg": 0.67
+    }
+  ]
+}

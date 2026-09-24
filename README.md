@@ -483,3 +483,36 @@ the preferred judge hasn't scored that task yet. Then add `<run_id>` to
   description notes the discrepancy. Task-mean scores: NaiveRAG 3.28,
   A-Mem 3.25, MemoryBank 3.17, Mem0 3.11, MemGPT 2.74, SuperMemory 2.40 —
   all well below `Ours` (4.20) and `old_data_4b` (4.19).
+- Two new datasets added for the `gpt-4o-mini` base model, sourced from
+  `infer/outputs/4omini/`: `memsyco-4omini-hint` and `locomo-4omini-hint`.
+  Kept as separate dataset tabs rather than merged into `locomo-refined` /
+  `memsyco-rerankmem-hint` — same reasoning as the luna tabs above:
+  gpt-4o-mini is a different base model than the qwen3-8b rows in those
+  main tables, so it gets its own tab rather than extra rows sitting
+  alongside them.
+  - `locomo-4omini-hint`: same single `locomo_qa` task (and the same
+    per-category cat1-4 × llm/f1/bleu metric columns) as `locomo-refined`.
+    Ingested via the existing `ingest_locomo_scored_summary.py
+    --generation-model gpt-4o-mini --dataset locomo-4omini-hint`.
+    `locomo_4o_mini_ours` ("Ours (GPT-4o-mini)", full RerankMem pipeline,
+    llm 0.608 — the top row of this tab) plus 6 baselines: MemoryBank
+    0.528, A-Mem 0.491, MemGPT 0.491, NaiveRAG 0.432, Mem0 0.289,
+    SuperMemory 0.182. Judge = the same "refined" summary tag as every
+    locomo-refined row (underlying model deepseek-v4.1-flash per the
+    batch's comparison_summary.md). Caveats recorded in run descriptions:
+    MemoryBank and Supermemory rebuilt their memory from scratch this run
+    (frozen-store disk miss), and A-MEM had 6/1382 retrieval-failed rows
+    scored as empty.
+  - `memsyco-4omini-hint`: same 5 tasks/metrics as `memsyco-rerankmem-hint`.
+    New `ingest_gpt4omini_memsyco.py` handles the two source shapes —
+    `ours/answer_shard_0.jsonl` (combined answer+judge shard, embedded
+    per-row judge aggregated with the shared TASK_JUDGE_FIELDS mapping;
+    Ours 4o-mini mean 0.589 vs qwen3-8b Ours 0.578) and the flat
+    `<task>/<method>_openai_gpt_4o_mini_*_final.json` baseline files
+    (pre-aggregated `metrics.with_memory`, same shape the qwen3-8b
+    paper-tasks ingester reads): 8 baselines + the no_memory objective
+    row. Note the flat files' `no_memory` run only has 100 samples (vs
+    300 for qwen3-8b), and A-Mem's valid_memory_selection lost 42/350 and
+    MemZero's 19/350 rows to OpenRouter 402 credit errors — n_judged
+    records the judged subset (308/331) per the usual judge-row-loss
+    caveat, pre-aggregated averages are over that subset.

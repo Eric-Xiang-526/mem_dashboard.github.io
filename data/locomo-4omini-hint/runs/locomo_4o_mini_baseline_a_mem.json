@@ -1,0 +1,39 @@
+{
+  "id": "locomo_4o_mini_baseline_a_mem",
+  "label": "A-Mem (GPT-4o-mini)",
+  "group": "main",
+  "description": "A-Mem baseline with GPT-4o-mini answer model on LoCoMo (refined). 6/1382 rows failed A-MEM retrieval, scored as empty. Judge: deepseek-v4.1-flash.",
+  "generation_model": "gpt-4o-mini",
+  "judge_models": [
+    "refined"
+  ],
+  "date": "",
+  "results": [
+    {
+      "task": "locomo_qa",
+      "arm": "with_memory",
+      "n_judged": 1382,
+      "headline_metric": "llm_score_avg",
+      "headline_value": 0.4913169319826339,
+      "llm_score_avg": 0.4913169319826339,
+      "f1_score_avg": 0.42654986318449545,
+      "bleu_score_avg": 0.36366365573228343,
+      "cat1_llm_score_avg": 0.43661971830985913,
+      "cat1_f1_score_avg": 0.4126201414358786,
+      "cat1_bleu_score_avg": 0.3198449478619895,
+      "cat1_n": 213,
+      "cat2_llm_score_avg": 0.12374581939799331,
+      "cat2_f1_score_avg": 0.20670214749546922,
+      "cat2_bleu_score_avg": 0.1470951004143752,
+      "cat2_n": 299,
+      "cat3_llm_score_avg": 0.5294117647058824,
+      "cat3_f1_score_avg": 0.39726079242851836,
+      "cat3_bleu_score_avg": 0.32282450430681575,
+      "cat3_n": 68,
+      "cat4_llm_score_avg": 0.6396508728179551,
+      "cat4_f1_score_avg": 0.5146959411581621,
+      "cat4_bleu_score_avg": 0.4595046097389655,
+      "cat4_n": 802
+    }
+  ]
+}

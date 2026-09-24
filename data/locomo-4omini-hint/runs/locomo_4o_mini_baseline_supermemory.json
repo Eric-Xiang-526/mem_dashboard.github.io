@@ -1,0 +1,39 @@
+{
+  "id": "locomo_4o_mini_baseline_supermemory",
+  "label": "SuperMemory (GPT-4o-mini)",
+  "group": "main",
+  "description": "SuperMemory baseline with GPT-4o-mini answer model on LoCoMo (refined). Memory rebuilt from scratch this run (intended frozen store disk-missed). Judge: deepseek-v4.1-flash.",
+  "generation_model": "gpt-4o-mini",
+  "judge_models": [
+    "refined"
+  ],
+  "date": "",
+  "results": [
+    {
+      "task": "locomo_qa",
+      "arm": "with_memory",
+      "n_judged": 1382,
+      "headline_metric": "llm_score_avg",
+      "headline_value": 0.18162083936324167,
+      "llm_score_avg": 0.18162083936324167,
+      "f1_score_avg": 0.1671539297503748,
+      "bleu_score_avg": 0.14070695916316311,
+      "cat1_llm_score_avg": 0.22535211267605634,
+      "cat1_f1_score_avg": 0.22141102157146292,
+      "cat1_bleu_score_avg": 0.1793405847380029,
+      "cat1_n": 213,
+      "cat2_llm_score_avg": 0.030100334448160536,
+      "cat2_f1_score_avg": 0.06151184787843387,
+      "cat2_bleu_score_avg": 0.05233183388913935,
+      "cat2_n": 299,
+      "cat3_llm_score_avg": 0.3235294117647059,
+      "cat3_f1_score_avg": 0.24615412304396903,
+      "cat3_bleu_score_avg": 0.19187420237407254,
+      "cat3_n": 68,
+      "cat4_llm_score_avg": 0.2144638403990025,
+      "cat4_f1_score_avg": 0.18543099805193863,
+      "cat4_bleu_score_avg": 0.15905587147133068,
+      "cat4_n": 802
+    }
+  ]
+}

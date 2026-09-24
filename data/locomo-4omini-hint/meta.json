@@ -1,0 +1,40 @@
+{
+  "id": "locomo-4omini-hint",
+  "name": "LoCoMo · 4o-mini (Hint)",
+  "benchmark": "LoCoMo_refined",
+  "description": "RerankMem hint mode and literature baselines evaluated with gpt-4o-mini as the base generation model, on the refined LoCoMo QA set, scored by an LLM judge plus F1/BLEU against the reference answer.",
+  "source_path": "infer/outputs/4omini/locomo",
+  "tasks": [
+    {
+      "id": "locomo_qa",
+      "short": "locomo_qa",
+      "headline_metric": "llm_score_avg",
+      "metrics": [
+        { "key": "llm_score_avg", "label": "LLM Score" },
+        { "key": "f1_score_avg", "label": "F1" },
+        { "key": "bleu_score_avg", "label": "BLEU" },
+        { "key": "cat1_llm_score_avg", "label": "Multi-hop (1) LLM" },
+        { "key": "cat1_f1_score_avg", "label": "Multi-hop (1) F1" },
+        { "key": "cat1_bleu_score_avg", "label": "Multi-hop (1) BLEU" },
+        { "key": "cat2_llm_score_avg", "label": "Temporal (2) LLM" },
+        { "key": "cat2_f1_score_avg", "label": "Temporal (2) F1" },
+        { "key": "cat2_bleu_score_avg", "label": "Temporal (2) BLEU" },
+        { "key": "cat3_llm_score_avg", "label": "Open-domain (3) LLM" },
+        { "key": "cat3_f1_score_avg", "label": "Open-domain (3) F1" },
+        { "key": "cat3_bleu_score_avg", "label": "Open-domain (3) BLEU" },
+        { "key": "cat4_llm_score_avg", "label": "Single-hop (4) LLM" },
+        { "key": "cat4_f1_score_avg", "label": "Single-hop (4) F1" },
+        { "key": "cat4_bleu_score_avg", "label": "Single-hop (4) BLEU" }
+      ]
+    }
+  ],
+  "runs": [
+    "locomo_4o_mini_ours",
+    "locomo_4o_mini_baseline_a_mem",
+    "locomo_4o_mini_baseline_memgpt",
+    "locomo_4o_mini_baseline_mem0",
+    "locomo_4o_mini_baseline_memorybank",
+    "locomo_4o_mini_baseline_naiverag",
+    "locomo_4o_mini_baseline_supermemory"
+  ]
+}

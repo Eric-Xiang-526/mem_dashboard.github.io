@@ -34,6 +34,16 @@
       "id": "locomo-luna-hint",
       "name": "LoCoMo · Luna (Hint)",
       "path": "data/locomo-luna-hint/"
+    },
+    {
+      "id": "memsyco-4omini-hint",
+      "name": "MemSyco · 4o-mini (Hint)",
+      "path": "data/memsyco-4omini-hint/"
+    },
+    {
+      "id": "locomo-4omini-hint",
+      "name": "LoCoMo · 4o-mini (Hint)",
+      "path": "data/locomo-4omini-hint/"
     }
   ]
 }

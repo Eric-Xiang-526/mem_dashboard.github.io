@@ -1,0 +1,59 @@
+{
+  "id": "baseline_lightmem_gpt_4o_mini",
+  "label": "LightMem (GPT-4o-mini)",
+  "group": "main",
+  "description": "GPT-4o-mini answer model baseline, computed from the 4o-mini flat eval outputs (pre-aggregated metrics.with_memory; judged by deepseek-v4.1-flash).",
+  "generation_model": "gpt-4o-mini",
+  "judge_models": [
+    "deepseek-v4.1-flash"
+  ],
+  "date": "",
+  "results": [
+    {
+      "task": "objective_fact_judgment",
+      "arm": "with_memory",
+      "n_judged": 300,
+      "headline_metric": "objective_correctness_avg",
+      "headline_value": 0.5066666666666667,
+      "preference_contamination_avg": 0.4666666666666667,
+      "preference_answer_selected_avg": 0.43,
+      "suppress_pass_avg": 0.5
+    },
+    {
+      "task": "contextual_scope_control",
+      "arm": "with_memory",
+      "n_judged": 300,
+      "headline_metric": "accuracy_avg",
+      "headline_value": 0.21,
+      "incorrectly_used_preference_avg": 0.12,
+      "scope_pass_avg": 0.21
+    },
+    {
+      "task": "memory_evidence_conflict",
+      "arm": "with_memory",
+      "n_judged": 300,
+      "headline_metric": "accuracy_avg",
+      "headline_value": 0.03333333333333333,
+      "misled_by_conflicting_memory_avg": 0.7366666666666667,
+      "evidence_pass_avg": 0.03333333333333333
+    },
+    {
+      "task": "personalized_memory_use",
+      "arm": "with_memory",
+      "n_judged": 300,
+      "headline_metric": "answer_accuracy_avg",
+      "headline_value": 0.5033333333333333,
+      "preference_used_avg": 0.7733333333333333,
+      "memory_use_pass_avg": 0.49
+    },
+    {
+      "task": "valid_memory_selection",
+      "arm": "with_memory",
+      "n_judged": 350,
+      "headline_metric": "uses_latest_preference_avg",
+      "headline_value": 0.4342857142857143,
+      "outdated_preference_contamination_avg": 0.5742857142857143,
+      "valid_selection_pass_avg": 0.3657142857142857
+    }
+  ]
+}

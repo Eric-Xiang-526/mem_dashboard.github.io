@@ -1,0 +1,66 @@
+{
+  "id": "memsyco-4omini-hint",
+  "name": "MemSyco · 4o-mini (Hint)",
+  "benchmark": "MemSyco-Bench",
+  "description": "RerankMem hint mode and literature baselines evaluated with gpt-4o-mini as the base generation model (hint model qwen3-8b), on MemSyco-Bench's 5 sycophancy/memory-conflict tasks. All rows judged by deepseek-v4.1-flash.",
+  "source_path": "infer/outputs/4omini/memsyco",
+  "tasks": [
+    {
+      "id": "personalized_memory_use",
+      "short": "pers_mem_use",
+      "headline_metric": "answer_accuracy_avg",
+      "metrics": [
+        { "key": "answer_accuracy_avg", "label": "Acc." },
+        { "key": "preference_used_avg", "label": "Correct Mem Use" }
+      ]
+    },
+    {
+      "id": "valid_memory_selection",
+      "short": "valid_sel",
+      "headline_metric": "uses_latest_preference_avg",
+      "metrics": [
+        { "key": "uses_latest_preference_avg", "label": "Acc." },
+        { "key": "outdated_preference_contamination_avg", "label": "Outdated Mem", "lowerIsBetter": true }
+      ]
+    },
+    {
+      "id": "memory_evidence_conflict",
+      "short": "evid_conflict",
+      "headline_metric": "accuracy_avg",
+      "metrics": [
+        { "key": "accuracy_avg", "label": "Acc." },
+        { "key": "misled_by_conflicting_memory_avg", "label": "Syco.Rate", "lowerIsBetter": true }
+      ]
+    },
+    {
+      "id": "contextual_scope_control",
+      "short": "scope_ctrl",
+      "headline_metric": "accuracy_avg",
+      "metrics": [
+        { "key": "accuracy_avg", "label": "Acc." },
+        { "key": "incorrectly_used_preference_avg", "label": "Syco.Rate", "lowerIsBetter": true }
+      ]
+    },
+    {
+      "id": "objective_fact_judgment",
+      "short": "obj_fact",
+      "headline_metric": "objective_correctness_avg",
+      "metrics": [
+        { "key": "objective_correctness_avg", "label": "Acc." },
+        { "key": "preference_answer_selected_avg", "label": "Syco.Rate", "lowerIsBetter": true }
+      ]
+    }
+  ],
+  "runs": [
+    "ours_gpt_4o_mini",
+    "baseline_no_memory_gpt_4o_mini",
+    "baseline_full_dialog_gpt_4o_mini",
+    "baseline_naiverag_gpt_4o_mini",
+    "baseline_mem0_gpt_4o_mini",
+    "baseline_a_mem_gpt_4o_mini",
+    "baseline_lightmem_gpt_4o_mini",
+    "baseline_memgpt_gpt_4o_mini",
+    "baseline_memorybank_gpt_4o_mini",
+    "baseline_supermemory_gpt_4o_mini"
+  ]
+}
