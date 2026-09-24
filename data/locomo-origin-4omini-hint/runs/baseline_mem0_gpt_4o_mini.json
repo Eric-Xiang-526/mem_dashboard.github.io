@@ -1,0 +1,30 @@
+{
+  "id": "baseline_mem0_gpt_4o_mini",
+  "label": "Mem0 (GPT-4o-mini)",
+  "group": "main",
+  "description": "GPT-4o-mini answer-model baseline; memory graph/store reused exactly from the qwen3-8b/deepseek-v4-flash extraction run for this method (answer-model-independent cache key), only the answer phase re-run. Token-F1, adversarial category excluded from headline.",
+  "generation_model": "gpt-4o-mini",
+  "judge_models": [
+    "token_f1"
+  ],
+  "date": "",
+  "results": [
+    {
+      "task": "locomo_qa",
+      "n_judged": 1540,
+      "headline_metric": "avg4_f1",
+      "headline_value": 0.2521243620568867,
+      "avg4_f1": 0.2521243620568867,
+      "cat1_f1": 0.21669506593436794,
+      "cat1_n": 282,
+      "cat2_f1": 0.15545969142624327,
+      "cat2_n": 321,
+      "cat3_f1": 0.26155157654587174,
+      "cat3_n": 96,
+      "cat4_f1": 0.29982401507477524,
+      "cat4_n": 841,
+      "cat5_adversarial_f1_excluded": 0.03811659192825112,
+      "cat5_adversarial_n_excluded": 446
+    }
+  ]
+}

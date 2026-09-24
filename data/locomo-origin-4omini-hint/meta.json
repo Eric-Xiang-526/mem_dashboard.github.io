@@ -1,0 +1,30 @@
+{
+  "id": "locomo-origin-4omini-hint",
+  "name": "LoCoMo (Origin) · 4o-mini (Hint)",
+  "benchmark": "LoCoMo_origin",
+  "description": "RerankMem hint mode and literature baselines evaluated with gpt-4o-mini as the answer model, on the original LoCoMo QA set (1986 questions), scored with the official snap-research token-F1 metric per question category. Memory graphs/stores for every method are reused directly from the existing qwen3-8b/deepseek-v4-flash extraction runs (answer-model-independent cache key) — only the answer phase was re-run with gpt-4o-mini. The adversarial category (5) is excluded from every row shown here, same as locomo-origin — its near-zero refusal-style scores are not comparable to the other four categories, so headline/avg is the n-weighted mean over categories 1-4 only (1540 questions).",
+  "source_path": "infer/outputs/4omini/locomo-origin",
+  "tasks": [
+    {
+      "id": "locomo_qa",
+      "short": "locomo_qa",
+      "headline_metric": "avg4_f1",
+      "metrics": [
+        { "key": "avg4_f1", "label": "Avg (cat 1-4)" },
+        { "key": "cat1_f1", "label": "Multi-hop (1)" },
+        { "key": "cat2_f1", "label": "Temporal (2)" },
+        { "key": "cat3_f1", "label": "Open-domain (3)" },
+        { "key": "cat4_f1", "label": "Single-hop (4)" }
+      ]
+    }
+  ],
+  "runs": [
+    "ours_ablate_both_gpt_4o_mini",
+    "baseline_a_mem_gpt_4o_mini",
+    "baseline_memgpt_gpt_4o_mini",
+    "baseline_mem0_gpt_4o_mini",
+    "baseline_memorybank_gpt_4o_mini",
+    "baseline_naiverag_gpt_4o_mini",
+    "baseline_supermemory_gpt_4o_mini"
+  ]
+}

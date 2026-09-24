@@ -516,3 +516,23 @@ the preferred judge hasn't scored that task yet. Then add `<run_id>` to
     MemZero's 19/350 rows to OpenRouter 402 credit errors — n_judged
     records the judged subset (308/331) per the usual judge-row-loss
     caveat, pre-aggregated averages are over that subset.
+- Third new dataset for the `gpt-4o-mini` base model: `locomo-origin-4omini-hint`,
+  sourced from `infer/outputs/4omini/locomo-origin/`. Same reasoning as the two
+  bullets above — separate tab, not merged into `locomo-origin`. Same schema as
+  `locomo-origin` (token-F1 per category, adversarial category 5 excluded from
+  headline/avg, so `avg4_f1` is the n-weighted mean over categories 1-4 only).
+  Ingested with the existing `ingest_locomo_origin_run.py --dataset
+  locomo-origin-4omini-hint` (no script changes needed — same `predictions_*.jsonl`
+  + `questions.jsonl` shape as the qwen3-8b locomo-origin runs). Memory
+  graphs/stores for every method (ours + all 6 baselines) are reused directly
+  from the existing qwen3-8b/deepseek-v4-flash extraction runs — the baseline
+  cache key is `(method, sample_key=conv_id, prior_dialogue)`, independent of
+  answer model, so only the answer phase was re-run with gpt-4o-mini; no
+  re-extraction happened for any method. `ours_ablate_both_gpt_4o_mini` (decomp+rerank
+  both ablated, matching the LoCoMo-Refined ablate_both run) scores avg4_f1 0.452,
+  essentially tied with MemoryBank's 0.453 (the closest race among all pairwise
+  comparisons in this batch) — ours' edge in the full comparison_summary.md
+  (which includes cat5) comes almost entirely from category 2 (temporal, 0.518 vs
+  MemoryBank's 0.215), while ours trails MemoryBank on cat1 (multi-hop) and cat4
+  (single-hop), consistent with decomp+rerank being ablated. Other baselines:
+  A-Mem 0.419, MemGPT 0.391, NaiveRAG 0.369, Mem0 0.252, Supermemory 0.152.

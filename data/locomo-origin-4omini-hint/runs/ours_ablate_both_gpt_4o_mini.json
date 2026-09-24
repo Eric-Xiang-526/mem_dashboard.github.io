@@ -1,0 +1,30 @@
+{
+  "id": "ours_ablate_both_gpt_4o_mini",
+  "label": "Ours (GPT-4o-mini, ablate_both)",
+  "group": "main",
+  "description": "RerankMem hint pipeline with decomp+rerank both ablated (matching the LoCoMo-Refined ablate_both run), answer model gpt-4o-mini; memory graphs/stores reused from the qwen3-8b/deepseek-v4-flash extraction runs, only the answer phase was re-run. Token-F1, adversarial category excluded from headline.",
+  "generation_model": "gpt-4o-mini",
+  "judge_models": [
+    "token_f1"
+  ],
+  "date": "",
+  "results": [
+    {
+      "task": "locomo_qa",
+      "n_judged": 1540,
+      "headline_metric": "avg4_f1",
+      "headline_value": 0.45208100339847423,
+      "avg4_f1": 0.45208100339847423,
+      "cat1_f1": 0.26946630788008713,
+      "cat1_n": 282,
+      "cat2_f1": 0.5183022930686485,
+      "cat2_n": 321,
+      "cat3_f1": 0.26581703250957167,
+      "cat3_n": 96,
+      "cat4_f1": 0.5093005650600603,
+      "cat4_n": 841,
+      "cat5_adversarial_f1_excluded": 0.02914798206278027,
+      "cat5_adversarial_n_excluded": 446
+    }
+  ]
+}

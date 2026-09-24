@@ -44,6 +44,11 @@
       "id": "locomo-4omini-hint",
       "name": "LoCoMo · 4o-mini (Hint)",
       "path": "data/locomo-4omini-hint/"
+    },
+    {
+      "id": "locomo-origin-4omini-hint",
+      "name": "LoCoMo (Origin) · 4o-mini (Hint)",
+      "path": "data/locomo-origin-4omini-hint/"
     }
   ]
 }
