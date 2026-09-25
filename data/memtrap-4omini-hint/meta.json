@@ -1,0 +1,92 @@
+{
+  "id": "memtrap-4omini-hint",
+  "name": "MemTrapBench · 4o-mini (Hint)",
+  "benchmark": "MemTrapBench",
+  "description": "RerankMem hint mode and literature baselines evaluated with gpt-4o-mini as the answer (generation) model on MemTrapBench's 6 adversarial memory-trap tasks, judged by deepseek-v4.1-flash. Memory stores for every method are reused directly from the prior qwen3-8b batches (no re-extraction); only the answer phase was re-run with gpt-4o-mini. Each response is scored 1-5 on 2-4 judge dimensions per task; values shown are raw 1-5 averages, not normalized. As with the deepseek-target memtrap runs, ~10-20% of judge rows per method fail to parse into dimension scores (a known judge property, see the deepseek-v4.1-flash precedent) — dimension means cover the parseable subset. number_game scores near 1.0 for every method including Ours, a real gpt-4o-mini target-model effect (the deepseek-target runs score ~2-4 there).",
+  "source_path": "infer/outputs/4omini/memtrap",
+  "tasks": [
+    {
+      "id": "hallucination",
+      "short": "hallucination",
+      "headline_metric": "overall_avg",
+      "format": "raw",
+      "metrics": [
+        { "key": "overall_avg", "label": "Overall" },
+        { "key": "dimension_1_factual_correctness_avg", "label": "Factual" },
+        { "key": "dimension_2_instruction_compliance_avg", "label": "Instr." },
+        { "key": "dimension_3_relevance_purity_avg", "label": "Relevance" },
+        { "key": "dimension_4_delivery_efficiency_avg", "label": "Delivery" }
+      ]
+    },
+    {
+      "id": "hurt",
+      "short": "hurt",
+      "headline_metric": "overall_avg",
+      "format": "raw",
+      "metrics": [
+        { "key": "overall_avg", "label": "Overall" },
+        { "key": "dimension_1_factual_correctness_avg", "label": "Factual" },
+        { "key": "dimension_2_instruction_compliance_avg", "label": "Instr." },
+        { "key": "dimension_3_relevance_purity_avg", "label": "Relevance" },
+        { "key": "dimension_4_delivery_efficiency_avg", "label": "Delivery" }
+      ]
+    },
+    {
+      "id": "inertia",
+      "short": "inertia",
+      "headline_metric": "overall_avg",
+      "format": "raw",
+      "metrics": [
+        { "key": "overall_avg", "label": "Overall" },
+        { "key": "dimension_1_factual_correctness_avg", "label": "Factual" },
+        { "key": "dimension_2_instruction_compliance_avg", "label": "Instr." },
+        { "key": "dimension_3_relevance_purity_avg", "label": "Relevance" },
+        { "key": "dimension_4_delivery_efficiency_avg", "label": "Delivery" }
+      ]
+    },
+    {
+      "id": "number_game",
+      "short": "number_game",
+      "headline_metric": "overall_avg",
+      "format": "raw",
+      "metrics": [
+        { "key": "overall_avg", "label": "Overall" },
+        { "key": "dimension_1_factual_correctness_avg", "label": "Factual" },
+        { "key": "dimension_2_instruction_compliance_avg", "label": "Instr." }
+      ]
+    },
+    {
+      "id": "poison",
+      "short": "poison",
+      "headline_metric": "overall_avg",
+      "format": "raw",
+      "metrics": [
+        { "key": "overall_avg", "label": "Overall" },
+        { "key": "dimension_1_safety_factual_correctness_avg", "label": "Safety" },
+        { "key": "dimension_2_relevance_purity_avg", "label": "Relevance" }
+      ]
+    },
+    {
+      "id": "unclear",
+      "short": "unclear",
+      "headline_metric": "overall_avg",
+      "format": "raw",
+      "metrics": [
+        { "key": "overall_avg", "label": "Overall" },
+        { "key": "dimension_1_factual_correctness_avg", "label": "Factual" },
+        { "key": "dimension_2_instruction_compliance_avg", "label": "Instr." },
+        { "key": "dimension_3_relevance_purity_avg", "label": "Relevance" },
+        { "key": "dimension_4_delivery_efficiency_avg", "label": "Delivery" }
+      ]
+    }
+  ],
+  "runs": [
+    "ours_ablate_both_gpt_4o_mini",
+    "baseline_a_mem_gpt_4o_mini",
+    "baseline_memgpt_gpt_4o_mini",
+    "baseline_mem0_gpt_4o_mini",
+    "baseline_memorybank_gpt_4o_mini",
+    "baseline_naiverag_gpt_4o_mini",
+    "baseline_supermemory_gpt_4o_mini"
+  ]
+}

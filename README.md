@@ -536,3 +536,27 @@ the preferred judge hasn't scored that task yet. Then add `<run_id>` to
   MemoryBank's 0.215), while ours trails MemoryBank on cat1 (multi-hop) and cat4
   (single-hop), consistent with decomp+rerank being ablated. Other baselines:
   A-Mem 0.419, MemGPT 0.391, NaiveRAG 0.369, Mem0 0.252, Supermemory 0.152.
+- Fourth `gpt-4o-mini` dataset: `memtrap-4omini-hint`, sourced from
+  `infer/outputs/4omini/memtrap/` (`baselines/<System>/
+  predictions_gpt4omini_scored_summary.json` + `ours/
+  predictions_gpt4omini_ablate_both_scored_summary.json` — the same
+  pre-aggregated `by_dataset.<task>.dimensions.<dim>.mean_raw_1_5` shape as
+  the other memtrap ablation summaries, so the existing
+  `ingest_memtrap_ablation_summary.py` handled it unchanged). Answer model
+  gpt-4o-mini, judge deepseek-v4.1-flash (per the batch's
+  comparison_summary.md; note the summary files' `target_model` field names
+  the *target*, so `--judge-model` was passed explicitly), memory stores
+  reused from the prior qwen3-8b batches — only the answer phase re-run.
+  Same 6 tasks/metrics (`format: raw` 1-5) as `memtrap-rerankmem-hint`.
+  Task-mean ranking: Ours (ablate_both) 3.66 > Mem0 3.62 > A-Mem 3.54 >
+  MemoryBank 3.52 > NaiveRAG 3.46 > SuperMemory 3.38 > MemGPT 3.37 —
+  Ours tops the table, but the spread over baselines is much tighter than
+  the qwen3-8b memtrap table (4.20 vs 3.28 best baseline). Two known-bench
+  caveats recorded in the dataset description: ~10-20% of judge rows per
+  method fail to parse into dimension scores (pre-existing
+  deepseek-judge property, not new), and `number_game` scores near 1.0
+  for every method including Ours — a real gpt-4o-mini target-model effect
+  (the deepseek/qwen3-8b-target runs score ~2-4 there). A-MEM's source
+  had 1046/1050 rows (4 lost in this run's generation pass on top of the
+  pre-existing 8-row store gap) and MemGPT/NaiveRAG lost 1/4 rows —
+  n_judged in each run JSON records the source n_total.

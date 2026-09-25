@@ -49,6 +49,11 @@
       "id": "locomo-origin-4omini-hint",
       "name": "LoCoMo (Origin) · 4o-mini (Hint)",
       "path": "data/locomo-origin-4omini-hint/"
+    },
+    {
+      "id": "memtrap-4omini-hint",
+      "name": "MemTrapBench · 4o-mini (Hint)",
+      "path": "data/memtrap-4omini-hint/"
     }
   ]
 }

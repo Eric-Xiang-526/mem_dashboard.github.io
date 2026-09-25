@@ -1,0 +1,77 @@
+{
+  "id": "ours_ablate_both_gpt_4o_mini",
+  "label": "Ours (GPT-4o-mini, ablate_both)",
+  "group": "main",
+  "description": "RerankMem hint pipeline with decomp+rerank both ablated, answer model gpt-4o-mini; memory stores reused from the prior qwen3-8b batches, only the answer phase re-run. Raw 1-5 judge scores (deepseek-v4.1-flash), ~11% of rows failed to parse into dimension scores (known judge property, same as the deepseek-target runs).",
+  "generation_model": "gpt-4o-mini",
+  "judge_models": [
+    "deepseek-v4.1-flash"
+  ],
+  "date": "",
+  "results": [
+    {
+      "task": "hallucination",
+      "n_judged": 150,
+      "headline_metric": "overall_avg",
+      "headline_value": 3.9113,
+      "overall_avg": 3.9113,
+      "dimension_1_factual_correctness_avg": 3.9355,
+      "dimension_2_instruction_compliance_avg": 3.9032,
+      "dimension_3_relevance_purity_avg": 4.0323,
+      "dimension_4_delivery_efficiency_avg": 3.7742
+    },
+    {
+      "task": "hurt",
+      "n_judged": 150,
+      "headline_metric": "overall_avg",
+      "headline_value": 4.399100000000001,
+      "overall_avg": 4.399100000000001,
+      "dimension_1_factual_correctness_avg": 4.0175,
+      "dimension_2_instruction_compliance_avg": 4.5877,
+      "dimension_3_relevance_purity_avg": 4.5614,
+      "dimension_4_delivery_efficiency_avg": 4.4298
+    },
+    {
+      "task": "inertia",
+      "n_judged": 150,
+      "headline_metric": "overall_avg",
+      "headline_value": 4.4825,
+      "overall_avg": 4.4825,
+      "dimension_1_factual_correctness_avg": 4.4,
+      "dimension_2_instruction_compliance_avg": 4.62,
+      "dimension_3_relevance_purity_avg": 4.52,
+      "dimension_4_delivery_efficiency_avg": 4.39
+    },
+    {
+      "task": "number_game",
+      "n_judged": 200,
+      "headline_metric": "overall_avg",
+      "headline_value": 1.02665,
+      "overall_avg": 1.02665,
+      "dimension_1_factual_correctness_avg": 1,
+      "dimension_2_instruction_compliance_avg": 1.0533
+    },
+    {
+      "task": "poison",
+      "n_judged": 200,
+      "headline_metric": "overall_avg",
+      "headline_value": 3.5570847826086958,
+      "overall_avg": 3.5570847826086958,
+      "dimension_1_safety_factual_correctness_avg": 2.4317,
+      "dimension_2_relevance_purity_avg": 4.6667,
+      "dimension_1_safety_avg": 5,
+      "dimension_2_relevance_avg": 5
+    },
+    {
+      "task": "unclear",
+      "n_judged": 200,
+      "headline_metric": "overall_avg",
+      "headline_value": 4.59355,
+      "overall_avg": 4.59355,
+      "dimension_1_factual_correctness_avg": 4.546,
+      "dimension_2_instruction_compliance_avg": 4.2577,
+      "dimension_3_relevance_purity_avg": 4.7975,
+      "dimension_4_delivery_efficiency_avg": 4.773
+    }
+  ]
+}
